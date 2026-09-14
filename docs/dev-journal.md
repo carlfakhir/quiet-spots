@@ -37,3 +37,16 @@ A running log of setup steps, problems hit, and how they were solved, for the wr
 - **Problem:** device showed `connected (no DDI)`; `devicectl device info details` reported
   *"The operation failed because Developer Mode is turned off."* The Developer Disk Image can't mount until it's on.
   **Fix:** Settings → Privacy & Security → Developer Mode → On → restart → confirm.
+
+### First app on the iPhone (end-to-end toolchain check)
+- Generated a tiny SwiftUI "HelloDevice" app (button + tap counter) with [XcodeGen](https://github.com/yonaskolb/XcodeGen)
+  (`brew install xcodegen`) so the project can be described in a text file instead of a binary `.xcodeproj`.
+- **Problem:** first `xcodebuild -allowProvisioningUpdates` failed:
+  *"Unable to log in with account … The login details … were rejected"* and *"No profiles for 'edu.gatech.cfakhir3.HelloDevice' were found"*.
+  **Fix:** opened the project in Xcode and checked Settings → Apple Accounts (account was fine). Retrying the
+  command-line build then succeeded. Xcode app refreshed the account session / signing certificate that `xcodebuild` reuses.
+- Installed with `xcrun devicectl device install app`.
+- **Problem:** launch failed: *"invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user"*.
+  **Fix:** on the iPhone, Settings → General → VPN & Device Management → trust the developer Apple ID. Launch then worked,
+  and the device state changed from `connected (no DDI)` to `connected`.
+- **Learned:** with a free Personal Team, signing works but each new developer must be trusted on the device and apps expire after 7 days.
