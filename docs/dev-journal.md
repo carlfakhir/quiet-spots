@@ -29,5 +29,11 @@ A running log of setup steps, problems hit, and how they were solved, for the wr
   sudo xcodebuild -runFirstLaunch
   ```
 - Verified: `xcode-select -p` → Xcode, iOS 27.0 device SDK present.
-- Downloading iOS Simulator runtime (`xcodebuild -downloadPlatform iOS`, ~8 GB) for SwiftUI previews.
-- Next: add Apple ID (free Personal Team), connect iPhone, enable Developer Mode.
+- Installed iOS 27.0 Simulator runtime (`xcodebuild -downloadPlatform iOS`, 8.05 GB) for SwiftUI previews.
+- Added Apple ID in Xcode → Settings → Accounts → free **Personal Team** (apps signed this way expire after 7 days).
+
+### iPhone
+- Device: iPhone 17 Pro, iOS 26.6.2, paired over USB (`xcrun devicectl list devices`).
+- **Problem:** device showed `connected (no DDI)`; `devicectl device info details` reported
+  *"The operation failed because Developer Mode is turned off."* The Developer Disk Image can't mount until it's on.
+  **Fix:** Settings → Privacy & Security → Developer Mode → On → restart → confirm.
