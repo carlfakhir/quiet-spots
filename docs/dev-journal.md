@@ -1,0 +1,33 @@
+# Development journal
+
+A running log of setup steps, problems hit, and how they were solved, for the write-up.
+
+## 2026-09-14 — Environment + backend
+
+**Machine:** MacBook (Apple M1, 16 GB), macOS 26.6.2
+
+### Backend
+- Chose Cloudflare Workers + Hono + D1 (details in [ai-log.md](ai-log.md)).
+- `wrangler dev` + `scripts/smoke.sh` pass locally, including a live Open-Meteo weather lookup.
+
+### Git / GitHub
+- Already logged into both github.com (`carlfakhir`) and github.gatech.edu (`cfakhir3`) via `gh`.
+- **Problem:** global git identity was a personal alias/email, so commits would not link to my GT account.
+  **Fix:** set a repo-local identity (`git config user.name/user.email`) to `cfakhir3@gatech.edu`, leaving other projects untouched.
+- **Problem:** `gh repo create --internal` failed: *"internal repositories can only be created within an organization"*.
+  **Fix:** created it as `--public`. On GT Enterprise GitHub that still requires a GT login to view.
+- Created labels (`assignment-core`, `exceptional`, `partner`) and Issues #1–#8 as a task board.
+
+### Xcode
+- Only Command Line Tools were installed (`xcodebuild` errored: *"requires Xcode, but active developer directory is a command line tools instance"*).
+- Installed **Xcode 27.0 (27A266a)** from the Mac App Store.
+- **Problem:** `xcodebuild` then refused to run: *"You have not agreed to the Xcode license agreements"*.
+  **Fix** (needs admin password, so run in Terminal):
+  ```bash
+  sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+  sudo xcodebuild -license accept
+  sudo xcodebuild -runFirstLaunch
+  ```
+- Verified: `xcode-select -p` → Xcode, iOS 27.0 device SDK present.
+- Downloading iOS Simulator runtime (`xcodebuild -downloadPlatform iOS`, ~8 GB) for SwiftUI previews.
+- Next: add Apple ID (free Personal Team), connect iPhone, enable Developer Mode.

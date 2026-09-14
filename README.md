@@ -62,5 +62,6 @@ Send auth as `Authorization: Bearer <token>`.
 _Coming once Xcode is installed — see [`ios/`](ios/)._
 
 ## Project docs
+- [`docs/dev-journal.md`](docs/dev-journal.md) — setup steps, problems, and fixes
 - [`docs/ai-log.md`](docs/ai-log.md) — how AI (Claude Code) was used, for the references section
 - Tasks and bugs are tracked in this repo's **Issues**
