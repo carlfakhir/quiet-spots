@@ -49,4 +49,5 @@ A running log of setup steps, problems hit, and how they were solved, for the wr
 - **Problem:** launch failed: *"invalid code signature, inadequate entitlements or its profile has not been explicitly trusted by the user"*.
   **Fix:** on the iPhone, Settings → General → VPN & Device Management → trust the developer Apple ID. Launch then worked,
   and the device state changed from `connected (no DDI)` to `connected`.
+- Screenshot: [HelloDevice running on iPhone](screenshots/01-HelloDevice-on-iPhone.png), captured with `xcrun devicectl device capture screenshot`.
 - **Learned:** with a free Personal Team, signing works but each new developer must be trusted on the device and apps expire after 7 days.
