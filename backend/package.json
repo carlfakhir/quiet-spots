@@ -1,0 +1,24 @@
+{
+  "name": "checkin-api",
+  "version": "1.0.0",
+  "description": "CheckIn backend: Cloudflare Workers + Hono + D1",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc",
+    "db:migrate:local": "wrangler d1 migrations apply checkin-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply checkin-db --remote",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "hono": "^4.13.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260914.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.131.2"
+  },
+  "private": true
+}

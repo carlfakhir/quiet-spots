@@ -1,0 +1,9 @@
+# AI / virtual teammate log
+
+The assignment allows virtual teammates if their use is documented. This file records how I used
+**Claude Code** (Anthropic's CLI coding agent, model Claude Opus 5) and what I learned.
+
+| Date | What I asked for | What the AI did | What I checked / learned |
+|---|---|---|---|
+| 2026-09-14 | Help plan and build the assignment on iPhone, partner in separate repo, use my GT GitHub | Checked installed tools (no Xcode yet), proposed SwiftUI + Cloudflare Workers/D1 backend. Found I was already logged into github.gatech.edu as `cfakhir3` and set a repo-local git identity so commits are attributed to my GT account | Why Workers + D1 over Render (free tier sleeps and loses disk) or Firebase Functions (needs a paid plan) |
+| 2026-09-14 | Write the backend | Generated the Hono API (`backend/src/index.ts`), D1 schema, and `scripts/smoke.sh`. Ran it locally with `wrangler dev`; all smoke tests passed, including live Open-Meteo weather for Georgia Tech | How JWT bearer auth and PBKDF2 password hashing work; D1 migrations; that Workers caps PBKDF2 at 100k iterations |
