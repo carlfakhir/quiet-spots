@@ -1,6 +1,6 @@
 # Assignment 1 Submission — Quiet Spots
 
-> **Draft.** Remaining: ✏️ partner section (after the swap) and 📱 on-device measuring screenshots.
+> **Draft.** Remaining: ✏️ partner section (after the swap).
 
 ## Name
 Carl Fakhir (GT username `cfakhir3`)
@@ -80,7 +80,8 @@ Git skills I already had.
 | ![](screenshots/13-device-sign-in-to-measure.png) | **Protected action.** Tapping Measure while signed out opens sign-in first, since posting requires an account. |
 | ![](screenshots/14-device-map.png) | **Campus map on the device** with a pin per study spot and the noise legend. |
 | ![](screenshots/15-device-account.png) | **Account tab** with sign in / create account. |
-| 📱 _Measuring a real room on the iPhone (+ posted report, quiet alert)_ | ✏️ _Still to capture: create an account on the phone, measure a spot, post, and ideally screen-record it._ |
+| ![](screenshots/16-device-report-posted.png) | **Real measurement on my iPhone.** I measured Crosland Tower 1st Floor at 50 dB (Moderate). The report shows the "On site" badge because GPS confirmed I was at the spot, and the page shows live weather. |
+| ![](screenshots/17-device-account-with-report.png) | **My account on the device** after posting, loaded from `GET /me` on the live API. |
 
 ## References (in the order I used them)
 

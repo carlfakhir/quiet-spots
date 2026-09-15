@@ -211,3 +211,5 @@ which a free Personal Team can't create. Local notifications were the realistic 
   [spot list](screenshots/11-device-spot-list.png) · [spot page with weather](screenshots/12-device-spot-detail-weather.png) ·
   [sign in to measure](screenshots/13-device-sign-in-to-measure.png) · [map](screenshots/14-device-map.png) · [account](screenshots/15-device-account.png).
   Weather on the device matched the API (29 °C, clear), which confirms the phone build uses the deployed backend, not localhost.
+- **First real measurement from the iPhone:** Crosland Tower 1st Floor, 50 dB (Moderate), posted as `carlfakhir` with an
+  "On site" badge (GPS within 150 m of the spot). [spot page](screenshots/16-device-report-posted.png) · [account](screenshots/17-device-account-with-report.png)
