@@ -109,3 +109,22 @@ a list of places, a detail page with a map, a favorite button, and a filter togg
 - **Problem:** build failed: *"'Tab' is only available in iOS 18.0 or newer"*. Apple's sample targeted iOS 17.
   **Fix:** raised the deployment target to iOS 18 (my phone runs iOS 26).
 - ![stage 2](screenshots/05-stage2-live-levels.png)
+
+## Backend deployed to Cloudflare
+**Live API:** https://quiet-spots-api.cfakhir3.workers.dev (dashboard at `/`, endpoint list at `/api`)
+
+- **Problem:** `npx wrangler login` timed out twice (*"Timed out waiting for authorization code"*). The OAuth page
+  only waits ~2 minutes for the "Allow" click. **Fix:** ran it again while I was at the browser.
+- `wrangler d1 create quiet-spots-db` → put the `database_id` in `wrangler.toml`, `wrangler d1 migrations apply --remote`.
+- JWT secret generated with `openssl rand -base64 48` and stored as a Worker secret (`wrangler secret put JWT_SECRET`), never in git.
+- **Problem:** first `wrangler deploy` uploaded the code but failed: *"You need to register a workers.dev subdomain"*.
+  Wrangler asks interactively, which didn't work from a non-interactive shell.
+  **Fix:** registered the `cfakhir3` subdomain through the Cloudflare REST API
+  (`PUT /accounts/{id}/workers/subdomain`) with the login token, then deployed again.
+- **Problem:** the new URL resolved but HTTPS failed: *"TLS alert, handshake failure"*.
+  **Cause:** the certificate for a brand-new workers.dev subdomain takes a few minutes to issue. Waited in a retry loop.
+- **Problem:** after adding the real `database_id`, the *local* dev server started returning 500 *"no such table: users"*.
+  **Cause:** Wrangler keys the local SQLite file by database id, so it created a fresh empty one.
+  **Fix:** `npm run db:migrate:local` again.
+- `bash scripts/smoke.sh https://quiet-spots-api.cfakhir3.workers.dev`: all checks pass in production, including live Open-Meteo weather.
+

@@ -11,7 +11,7 @@ their location, today's step count, and the current weather. Everyone sees a sha
 | Backend REST API | Cloudflare Workers + Hono + D1 (SQLite) | [`backend/`](backend/) |
 | Third-party data | [Open-Meteo](https://open-meteo.com/) weather API | called from backend |
 
-**Live API:** _TBD after deploy_
+**Live API:** https://quiet-spots-api.cfakhir3.workers.dev · [web dashboard](https://quiet-spots-api.cfakhir3.workers.dev/) · [endpoint list](https://quiet-spots-api.cfakhir3.workers.dev/api)
 
 ## Features
 - Accounts with username/password → PBKDF2-hashed passwords, JWT bearer tokens

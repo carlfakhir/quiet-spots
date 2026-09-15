@@ -8,6 +8,5 @@ enabled = true
 [[d1_databases]]
 binding = "DB"
 database_name = "quiet-spots-db"
-# Replace with the id printed by `npx wrangler d1 create quiet-spots-db` before deploying.
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "b0dcc856-89cd-4a63-9f80-39243f752c12"
 migrations_dir = "migrations"
