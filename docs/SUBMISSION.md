@@ -36,7 +36,7 @@ device sensors, and deploying a real backend? What did you know before, and what
 |---|---|---|
 | 1 | Install a dev environment | Xcode 27 + iOS 27 SDK, Simulator, free Personal Team signing. [Journal: Xcode](dev-journal.md#xcode) · [HelloDevice on my iPhone](screenshots/01-HelloDevice-on-iPhone.png) |
 | 2 | Build an existing sample on a device, with user input | Apple Landmarks sample committed unmodified (`82533c5`), built from that exact commit and run on my iPhone 17 Pro: [screenshot](screenshots/02-landmarks-sample-on-iphone.png). User input: favorite button and "Favorites only" toggle. |
-| 3 | Git account, check in code, track tasks/bugs | [github.gatech.edu/cfakhir3/quiet-spots](https://github.gatech.edu/cfakhir3/quiet-spots), 14+ commits, [Issues](https://github.gatech.edu/cfakhir3/quiet-spots/issues) with labels, [dev journal](dev-journal.md) |
+| 3 | Git account, check in code, track tasks/bugs | [github.gatech.edu/cfakhir3/quiet-spots](https://github.gatech.edu/cfakhir3/quiet-spots), 17 commits, [Issues](https://github.gatech.edu/cfakhir3/quiet-spots/issues) with labels, [dev journal](dev-journal.md) |
 | 4 | Partner swap both ways | ✏️ _Partner's PR to my repo + my PR to theirs (links, screenshots)._ |
 | 5 | Deployed web service with REST API, in git | [quiet-spots-api.cfakhir3.workers.dev](https://quiet-spots-api.cfakhir3.workers.dev/api), code in [`backend/`](../backend/), smoke test passes in production |
 
@@ -159,6 +159,8 @@ e365519  Sep 14 20:53  Measure noise with the microphone and post reports
 912571a  Sep 14 20:56  Add campus map tab and quiet-spot alerts
 997f6c3  Sep 14 20:58  Add Spanish localization
 c121050  Sep 14 20:59  Show usage analytics on the web dashboard
+06bf75b  Sep 14 21:02  Run unmodified Landmarks sample on iPhone and draft submission
+11ea1ee  Sep 14 21:05  Add screenshots of Quiet Spots running on iPhone
 ```
 ✏️ _Update with `git log --oneline` after the partner swap, and add a screenshot of the network graph or the merged PRs._
 
