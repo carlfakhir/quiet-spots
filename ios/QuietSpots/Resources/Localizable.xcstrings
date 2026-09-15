@@ -1,0 +1,708 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ is quiet now": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ está tranquilo ahora"
+          }
+        }
+      }
+    },
+    "%@, %@": {
+      "shouldTranslate": false
+    },
+    "%lld": {
+      "shouldTranslate": false
+    },
+    "%lld dB": {
+      "shouldTranslate": false
+    },
+    "%lld°C": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld °C"
+          }
+        }
+      }
+    },
+    "3–24 letters, numbers, or underscores. Password at least 8 characters.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De 3 a 24 letras, números o guiones bajos. Contraseña de al menos 8 caracteres."
+          }
+        }
+      }
+    },
+    "About this spot": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre este lugar"
+          }
+        }
+      }
+    },
+    "Account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuenta"
+          }
+        }
+      }
+    },
+    "Alert me when a favorite gets quiet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avisarme cuando un favorito esté tranquilo"
+          }
+        }
+      }
+    },
+    "Alerts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alertas"
+          }
+        }
+      }
+    },
+    "Around %lld dB based on recent reports. Good time to head over.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alrededor de %lld dB según reportes recientes. Buen momento para ir."
+          }
+        }
+      }
+    },
+    "Average %lld dB · Peak %lld dB": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Promedio %lld dB · Pico %lld dB"
+          }
+        }
+      }
+    },
+    "Busy": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lleno"
+          }
+        }
+      }
+    },
+    "Can't reach the server": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se puede conectar con el servidor"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        }
+      }
+    },
+    "Checks your starred spots when the app refreshes, including in the background.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisa tus lugares favoritos cuando la app se actualiza, incluso en segundo plano."
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        }
+      }
+    },
+    "Couldn't measure": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo medir"
+          }
+        }
+      }
+    },
+    "Create account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crear cuenta"
+          }
+        }
+      }
+    },
+    "Delete report": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar reporte"
+          }
+        }
+      }
+    },
+    "Favorites only": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo favoritos"
+          }
+        }
+      }
+    },
+    "Finding your location…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscando tu ubicación…"
+          }
+        }
+      }
+    },
+    "Hold still for %lld seconds": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No te muevas durante %lld segundos"
+          }
+        }
+      }
+    },
+    "How does it feel?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Cómo se siente?"
+          }
+        }
+      }
+    },
+    "Location is off, so this report won't show how close you were": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La ubicación está desactivada, así que este reporte no mostrará qué tan cerca estabas"
+          }
+        }
+      }
+    },
+    "Loud": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruidoso"
+          }
+        }
+      }
+    },
+    "Map": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mapa"
+          }
+        }
+      }
+    },
+    "Measure again": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medir otra vez"
+          }
+        }
+      }
+    },
+    "Measure noise here": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medir el ruido aquí"
+          }
+        }
+      }
+    },
+    "Measuring…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Midiendo…"
+          }
+        }
+      }
+    },
+    "Microphone access is off": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El acceso al micrófono está desactivado"
+          }
+        }
+      }
+    },
+    "Mode": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo"
+          }
+        }
+      }
+    },
+    "Moderate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moderado"
+          }
+        }
+      }
+    },
+    "No favorites yet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún no hay favoritos"
+          }
+        }
+      }
+    },
+    "No one has measured this spot yet. Be the first.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nadie ha medido este lugar todavía. Sé el primero."
+          }
+        }
+      }
+    },
+    "No recent reports": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin reportes recientes"
+          }
+        }
+      }
+    },
+    "Note (optional)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nota (opcional)"
+          }
+        }
+      }
+    },
+    "Notifications are turned off for Quiet Spots. Turn them on in Settings.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las notificaciones de Quiet Spots están desactivadas. Actívalas en Ajustes."
+          }
+        }
+      }
+    },
+    "Okay": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bien"
+          }
+        }
+      }
+    },
+    "On site": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En el lugar"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir Ajustes"
+          }
+        }
+      }
+    },
+    "Open a spot and tap the star to add it here.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre un lugar y toca la estrella para agregarlo aquí."
+          }
+        }
+      }
+    },
+    "Outside": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afuera"
+          }
+        }
+      }
+    },
+    "Password": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contraseña"
+          }
+        }
+      }
+    },
+    "Post report": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Publicar reporte"
+          }
+        }
+      }
+    },
+    "Quiet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tranquilo"
+          }
+        }
+      }
+    },
+    "Quiet Spots": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quiet Spots"
+          }
+        }
+      }
+    },
+    "Recent reports": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reportes recientes"
+          }
+        }
+      }
+    },
+    "Reports posted": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reportes publicados"
+          }
+        }
+      }
+    },
+    "Right now": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahora mismo"
+          }
+        }
+      }
+    },
+    "Select a study spot": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige un lugar de estudio"
+          }
+        }
+      }
+    },
+    "Send a test alert": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enviar una alerta de prueba"
+          }
+        }
+      }
+    },
+    "Sign in": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar sesión"
+          }
+        }
+      }
+    },
+    "Sign in to measure": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia sesión para medir"
+          }
+        }
+      }
+    },
+    "Sign out": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar sesión"
+          }
+        }
+      }
+    },
+    "Skip": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omitir"
+          }
+        }
+      }
+    },
+    "Spots": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lugares"
+          }
+        }
+      }
+    },
+    "Spots measured": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lugares medidos"
+          }
+        }
+      }
+    },
+    "The microphone couldn't start.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo iniciar el micrófono."
+          }
+        }
+      }
+    },
+    "The microphone is only used to measure loudness. No audio is recorded or uploaded.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El micrófono solo se usa para medir el volumen. No se graba ni se sube audio."
+          }
+        }
+      }
+    },
+    "This is a test alert. Real alerts come when a starred spot turns quiet.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta es una alerta de prueba. Las alertas reales llegan cuando un lugar favorito se vuelve tranquilo."
+          }
+        }
+      }
+    },
+    "Toggle Favorite": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Marcar como favorito"
+          }
+        }
+      }
+    },
+    "Turn on microphone access for Quiet Spots in Settings to measure noise.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa el acceso al micrófono para Quiet Spots en Ajustes para medir el ruido."
+          }
+        }
+      }
+    },
+    "Username": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usuario"
+          }
+        }
+      }
+    },
+    "Vote": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voto"
+          }
+        }
+      }
+    },
+    "You": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tú"
+          }
+        }
+      }
+    },
+    "You need an account to post noise reports. Anyone can browse spots.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Necesitas una cuenta para publicar reportes de ruido. Cualquiera puede ver los lugares."
+          }
+        }
+      }
+    },
+    "You're %lld m from this spot": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estás a %lld m de este lugar"
+          }
+        }
+      }
+    },
+    "You're at this spot (%lld m away)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estás en este lugar (a %lld m)"
+          }
+        }
+      }
+    },
+    "Your recent reports": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus reportes recientes"
+          }
+        }
+      }
+    },
+    "^[%lld report](inflect: true) in the last 2 hours": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "^[%lld reporte](inflect: true) en las últimas 2 horas"
+          }
+        }
+      }
+    },
+    "just now": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ahora mismo"
+          }
+        }
+      }
+    },
+    "–": {
+      "shouldTranslate": false
+    }
+  },
+  "version": "1.0"
+}

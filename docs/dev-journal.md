@@ -192,3 +192,12 @@ which a free Personal Team can't create. Local notifications were the realistic 
 - Test alerts now say they're a test, so they don't claim a spot is quiet when it isn't.
 
 ![map and alerts](screenshots/08-stage4-map-and-alerts.png)
+
+## iOS Stage 5 — Spanish localization
+- Built with `SWIFT_EMIT_LOC_STRINGS=YES` and read the compiler's `.stringsdata` output to get the **exact** 74 localizable keys
+  (including interpolations like `You're %lld m from this spot`), instead of guessing them by hand.
+- Added `Localizable.xcstrings` (String Catalog) with Spanish for every UI string, and `InfoPlist.xcstrings` so the
+  **microphone and location permission prompts** are in Spanish too.
+- Plurals use SwiftUI automatic grammar agreement, which also works in Spanish (`^[%lld reporte](inflect: true)`).
+- Spot names and building names stay in English: they're proper names and come from the server.
+- Tested by launching the Simulator app with `-AppleLanguages "(es)"`. ![spanish](screenshots/09-spanish.png)

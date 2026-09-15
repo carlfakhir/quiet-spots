@@ -5,9 +5,12 @@ options:
   deploymentTarget:
     iOS: "18.0"
   createIntermediateGroups: true
+  developmentLanguage: en
 settings:
   base:
     SWIFT_VERSION: "5.0"
+    SWIFT_EMIT_LOC_STRINGS: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
     DEVELOPMENT_TEAM: HW9CPN28W6
     CODE_SIGN_STYLE: Automatic
 targets:
