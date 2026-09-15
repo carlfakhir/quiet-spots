@@ -33,7 +33,7 @@ parks became study spots, the bundled JSON became a REST API, and the favorite b
 ## Run the iOS app
 Requires a Mac with Xcode 16+ (built with Xcode 27) and an iPhone on iOS 18+.
 ```bash
-git clone https://github.gatech.edu/cfakhir3/quiet-spots.git
+git clone https://github.com/carlfakhir/quiet-spots.git
 open quiet-spots/ios/QuietSpots.xcodeproj
 ```
 1. Select the **QuietSpots** target → **Signing & Capabilities** → choose your own Team

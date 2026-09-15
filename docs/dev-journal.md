@@ -204,7 +204,7 @@ which a free Personal Team can't create. Local notifications were the realistic 
 
 ## Running on the iPhone
 - **Landmarks sample, unmodified:** since the repo had already moved on, I checked out the exact commit where Apple's sample was
-  added into a temporary worktree (`git worktree add --detach … 82533c5`), built it with my team passed on the command line,
+  added into a temporary worktree (`git worktree add --detach … 01543ca`), built it with my team passed on the command line,
   and installed it with `xcrun devicectl device install app`. ![landmarks](screenshots/02-landmarks-sample-on-iphone.png)
 - **Quiet Spots** built for the device (talks to the live API instead of localhost) and installed alongside it.
 - Screenshots taken on the phone of Quiet Spots running against the live API:
@@ -213,3 +213,19 @@ which a free Personal Team can't create. Local notifications were the realistic 
   Weather on the device matched the API (29 °C, clear), which confirms the phone build uses the deployed backend, not localhost.
 - **First real measurement from the iPhone:** Crosland Tower 1st Floor, 50 dB (Moderate), posted as `carlfakhir` with an
   "On site" badge (GPS within 150 m of the spot). [spot page](screenshots/16-device-report-posted.png) · [account](screenshots/17-device-account-with-report.png)
+
+## Moving the repo to my personal GitHub
+- **Problem:** my partner's account (`jmbgat`) is on github.com, but the repo was on GT GitHub (github.gatech.edu).
+  Adding him failed with *"Not Found"*: GT GitHub is a separate server with its own accounts and can't see github.com users.
+- **Options:** he signs in to GT GitHub once to create an account, or I move the repo. The assignment allows "your own GitHub
+  repository as long as you can provide access to anyone in the class", so I moved it to a **public** repo on my personal account.
+- **Before making it public** I searched the whole history for secrets (`git grep` over every commit for password/token/key
+  patterns, and checked for `.env`/`.dev.vars` files). Nothing sensitive: the backend secret lives only in Cloudflare.
+- **Commit author:** rewrote all commits from my GT email to my GitHub no-reply address with
+  `git filter-repo --mailmap`, so they count on my personal profile without exposing an email. Dates and messages are unchanged
+  (checked by diffing `git log --date=iso` before and after). A rewrite changes every commit hash, so I updated the hashes
+  quoted in these docs.
+- **Issues:** GitHub can't transfer Issues between servers, so #1–#10 were recreated in order (same numbers, labels, comments,
+  open/closed state) with a note giving the original dates and commit references mapped to the new hashes.
+- Kept the GT repo untouched as a backup and disabled pushing to it locally so the rewritten history can't be pushed there by accident.
+

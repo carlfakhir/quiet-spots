@@ -46,8 +46,8 @@ Git skills I already had.
 | # | Requirement | Evidence |
 |---|---|---|
 | 1 | Install a dev environment | Xcode 27 + iOS 27 SDK, Simulator, free Personal Team signing. [Journal: Xcode](dev-journal.md#xcode) · [HelloDevice on my iPhone](screenshots/01-HelloDevice-on-iPhone.png) |
-| 2 | Build an existing sample on a device, with user input | Apple Landmarks sample committed unmodified (`82533c5`), built from that exact commit and run on my iPhone 17 Pro: [screenshot](screenshots/02-landmarks-sample-on-iphone.png). User input: favorite button and "Favorites only" toggle. |
-| 3 | Git account, check in code, track tasks/bugs | [github.gatech.edu/cfakhir3/quiet-spots](https://github.gatech.edu/cfakhir3/quiet-spots), 17+ commits, [Issues](https://github.gatech.edu/cfakhir3/quiet-spots/issues) with labels, [dev journal](dev-journal.md) |
+| 2 | Build an existing sample on a device, with user input | Apple Landmarks sample committed unmodified (`01543ca`), built from that exact commit and run on my iPhone 17 Pro: [screenshot](screenshots/02-landmarks-sample-on-iphone.png). User input: favorite button and "Favorites only" toggle. |
+| 3 | Git account, check in code, track tasks/bugs | [github.com/carlfakhir/quiet-spots](https://github.com/carlfakhir/quiet-spots) (public), 20+ commits, [Issues](https://github.com/carlfakhir/quiet-spots/issues) with labels, [dev journal](dev-journal.md) |
 | 4 | Partner swap both ways | ✏️ _Partner's PR to my repo + my PR to theirs (links, screenshots)._ |
 | 5 | Deployed web service with REST API, in git | [quiet-spots-api.cfakhir3.workers.dev](https://quiet-spots-api.cfakhir3.workers.dev/api), code in [`backend/`](../backend/), smoke test passes in production |
 
@@ -68,7 +68,7 @@ Git skills I already had.
 | | |
 |---|---|
 | ![](screenshots/01-HelloDevice-on-iPhone.png) | **First app on my iPhone.** Tiny SwiftUI app to prove signing and install worked end to end. |
-| ![](screenshots/02-landmarks-sample-on-iphone.png) | **Required sample app, unmodified, running on my iPhone.** Apple's Landmarks (Handling User Input), built from commit `82533c5` before any changes. |
+| ![](screenshots/02-landmarks-sample-on-iphone.png) | **Required sample app, unmodified, running on my iPhone.** Apple's Landmarks (Handling User Input), built from commit `01543ca` before any changes. |
 | ![](screenshots/04-stage1-spot-list.png) | **Stage 1.** Landmarks list turned into GT study spots, with category badges replacing park photos. |
 | ![](screenshots/05-stage2-live-levels.png) | **Stage 2.** Live noise levels from the REST API, sorted quietest first. |
 | ![](screenshots/06-stage3-measure-flow.png) | **Stage 3.** Spot page with weather → measuring → result with vote and location check → report posted. Captured by the automated UI test. |
@@ -154,7 +154,8 @@ Details and fixes for each are in the [dev journal](dev-journal.md).
 | Mixed-up commit | `git add -A` swept in unfinished files | Split with `git reset --soft`, force-push before anyone cloned |
 
 ## Repository and API
-- **Repo:** https://github.gatech.edu/cfakhir3/quiet-spots
+- **Repo:** https://github.com/carlfakhir/quiet-spots (public, so anyone in the class can access it).
+  Started on GT GitHub (github.gatech.edu/cfakhir3/quiet-spots) and moved on Sept 15 so my partner could be added; see the [dev journal](dev-journal.md#moving-the-repo-to-my-personal-github).
 - **API:** https://quiet-spots-api.cfakhir3.workers.dev (endpoints: [`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api), stats: [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats))
 - **Dashboard:** https://quiet-spots-api.cfakhir3.workers.dev/
 - **Download and run:** see the [README](../README.md#run-the-ios-app): clone, open `ios/QuietSpots.xcodeproj`, pick your team and iPhone, ⌘R.
@@ -163,22 +164,27 @@ Details and fixes for each are in the [dev journal](dev-journal.md).
 ## Git history
 
 ```
-f5df4b7  Sep 14 18:21  Add CheckIn backend API (Workers + Hono + D1) and project docs
-a30880e  Sep 14 19:07  Add dev journal for Xcode and GitHub setup
-62cc64c  Sep 14 19:10  Log simulator install, Apple ID team, and iPhone pairing
-3aa8abc  Sep 14 19:38  Log first successful build and launch on iPhone
-aa21b6a  Sep 14 19:39  Add screenshot of test app running on iPhone
-82533c5  Sep 14 20:02  Add Apple's SwiftUI Landmarks sample (Handling User Input), unmodified
-41f06f4  Sep 14 20:07  Reshape backend for Quiet Spots: study spots, noise reports, web dashboard
-6a7f43c  Sep 14 20:11  Turn Landmarks sample into Quiet Spots with Georgia Tech study spots
-7be6b84  Sep 14 20:14  Load spots from the REST API and add sign in / create account
-6b49b48  Sep 14 20:40  Deploy API to Cloudflare Workers
-e365519  Sep 14 20:53  Measure noise with the microphone and post reports
-912571a  Sep 14 20:56  Add campus map tab and quiet-spot alerts
-997f6c3  Sep 14 20:58  Add Spanish localization
-c121050  Sep 14 20:59  Show usage analytics on the web dashboard
-06bf75b  Sep 14 21:02  Run unmodified Landmarks sample on iPhone and draft submission
-11ea1ee  Sep 14 21:05  Add screenshots of Quiet Spots running on iPhone
+5b1df7f  Sep 14 18:21  Add CheckIn backend API (Workers + Hono + D1) and project docs
+ef2ad2b  Sep 14 19:07  Add dev journal for Xcode and GitHub setup
+7fd5acb  Sep 14 19:10  Log simulator install, Apple ID team, and iPhone pairing
+d45f870  Sep 14 19:38  Log first successful build and launch on iPhone
+c5f77e6  Sep 14 19:39  Add screenshot of test app running on iPhone
+01543ca  Sep 14 20:02  Add Apple's SwiftUI Landmarks sample (Handling User Input), unmodified
+e2013cf  Sep 14 20:07  Reshape backend for Quiet Spots: study spots, noise reports, web dashboard
+5876b2b  Sep 14 20:11  Turn Landmarks sample into Quiet Spots with Georgia Tech study spots
+301144b  Sep 14 20:14  Load spots from the REST API and add sign in / create account
+d6752c6  Sep 14 20:40  Deploy API to Cloudflare Workers
+d609dac  Sep 14 20:53  Measure noise with the microphone and post reports
+c81b807  Sep 14 20:56  Add campus map tab and quiet-spot alerts
+0f3ecfd  Sep 14 20:58  Add Spanish localization
+d89aae0  Sep 14 20:59  Show usage analytics on the web dashboard
+85a669c  Sep 14 21:02  Run unmodified Landmarks sample on iPhone and draft submission
+f7d950d  Sep 14 21:05  Add screenshots of Quiet Spots running on iPhone
+2b010e8  Sep 14 21:05  Update git history in submission draft
+ec563d7  Sep 14 21:05  Fix commit count in submission draft
+e45a186  Sep 14 21:07  Separate references actually used from framework documentation
+a08872e  Sep 14 21:09  Add background, motivation, takeaways, and AI reflection to submission
+f1374a2  Sep 14 21:17  Add screenshots of a real noise report posted from iPhone
 ```
 ✏️ _Update with `git log --oneline` after the partner swap, and add a screenshot of the network graph or the merged PRs._
 
