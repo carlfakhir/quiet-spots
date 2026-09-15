@@ -42,6 +42,11 @@ struct SpotRow: View {
                 Text(spot.noiseLevel.label)
                     .font(.caption2)
                     .foregroundStyle(.secondary)
+                if let lastReportAt = spot.lastReportAt {
+                    Text(RelativeTime.string(from: lastReportAt))
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
             }
         }
         .accessibilityElement(children: .combine)

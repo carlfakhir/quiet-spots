@@ -31,7 +31,7 @@ parks became study spots, the bundled JSON became a REST API, and the favorite b
 - **Usage analytics**: screen views and actions logged to `POST /events`, summarized at [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats).
 
 ## Run the iOS app
-Requires a Mac with Xcode 16+ (built with Xcode 27) and an iPhone on iOS 18+.
+Requires a Mac with Xcode 16+ and an iPhone on iOS 18+.
 ```bash
 git clone https://github.com/carlfakhir/quiet-spots.git
 open quiet-spots/ios/QuietSpots.xcodeproj
