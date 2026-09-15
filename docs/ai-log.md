@@ -3,6 +3,25 @@
 The assignment allows virtual teammates if their use is documented. This file records how I used
 **Claude Code** (Anthropic's CLI coding agent, model Claude Opus 5) and what I learned.
 
+## Summary (moved here from the submission and references)
+- **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. It substantively:
+  checked my environment and walked me through Xcode and device setup; proposed the architecture; wrote the backend,
+  the iOS changes on top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy;
+  and debugged the problems listed in the submission. Dated log of what I asked for, what it did, and what I checked is below.
+
+  **How I used it:** I chose the app idea, directed the features and design choices (for example: build on a real sample so
+  the modification is visible, make it original, keep commits under my account), personally tested the app on my iPhone,
+  and gave feedback. Claude provided substantial coding assistance; I guided what we were building and checked how it worked.
+  **What I learned:** AI can move quickly, but it needs clear direction and hands-on testing, and I'd review each change as
+  it's introduced next time.
+- **Where the idea came from:** Quiet Spots came out of brainstorming app ideas with Claude; I chose it from that list.
+- **References note:** the "Framework documentation" in [REFERENCES.md](REFERENCES.md) lists the official docs for the APIs in the
+  code. The code was written by Claude Code from its own knowledge of these frameworks, not by reading those pages during the project.
+- **Takeaway:** using AI for coding still requires clear direction and hands-on testing. Next time I would spend more time
+  understanding each change as it is introduced instead of reviewing larger batches afterward.
+
+## Dated log
+
 | Date | What I asked for | What the AI did | What I checked / learned |
 |---|---|---|---|
 | 2026-09-14 | Help plan and build the assignment on iPhone, partner in separate repo, use my GT GitHub | Checked installed tools (no Xcode yet), proposed SwiftUI + Cloudflare Workers/D1 backend. Found I was already logged into github.gatech.edu as `cfakhir3` and set a repo-local git identity so commits are attributed to my GT account | Why Workers + D1 over Render (free tier sleeps and loses disk) or Firebase Functions (needs a paid plan) |
@@ -15,3 +34,4 @@ The assignment allows virtual teammates if their use is documented. This file re
 | 2026-09-14 | Build the whole app from the sample and keep going while I handle partner work tomorrow | Built Quiet Spots in five stages on top of Apple's Landmarks sample (spots → API + accounts → mic measuring + weather + reports → map + notifications → Spanish), wrote XCUITests and debugged four failing runs using the test's saved UI hierarchy and screen recording, deployed the backend (including registering the workers.dev subdomain via the Cloudflare API), added dashboard stats, updated Issues, and drafted SUBMISSION.md. Split a commit it had mixed up with `git add -A` | I directed the pivot and features, tested the builds on my iPhone, and took the device screenshots. Lesson: review each change as it lands, not in batches |
 | 2026-09-14 | Why do I need Cloudflare? Can it be a different account from GitHub? | Explained that item 5 needs an always-online server the phone and graders can reach, and that the Cloudflare and GitHub accounts are independent | Hosting is separate from source control; deploys go from my Mac straight to Cloudflare |
 | 2026-09-15 | Add my partner `jmbgat`; then move the repo to my personal GitHub, public, with history under that account | Found `jmbgat` doesn't exist on GT GitHub (only github.com) and explained why he can't be added. After I chose to move, scanned history for secrets, rewrote the commit author with `git filter-repo`, created the public repo, recreated Issues #1–#10 with a script, invited `jmbgat`, and updated hashes/links in the docs | GT GitHub and github.com are separate servers with separate accounts; the assignment allows my own repo if it's accessible to the class. Rewriting history changes every hash, so anything quoting hashes needs updating |
+| 2026-09-15 | Keep AI mentions only in this log; give references their own page | Searched every file, commit message, and Issue for AI mentions. Moved them here from the submission, README, and dev journal, reworded one commit message, and split the references into `docs/REFERENCES.md` with a pointer to this log (the assignment requires AI help to be listed with the references) | Rewording a commit message rewrites that commit and every one after it, so hashes in the docs had to be updated again |

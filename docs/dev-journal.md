@@ -7,7 +7,7 @@ A running log of setup steps, problems hit, and how they were solved, for the wr
 **Machine:** MacBook (Apple M1, 16 GB), macOS 26.6.2
 
 ### Backend
-- Chose Cloudflare Workers + Hono + D1 (details in [ai-log.md](ai-log.md)).
+- Chose Cloudflare Workers + Hono + D1: free and always on (Render's free tier sleeps and loses its disk; Firebase Functions needs a paid plan).
 - `wrangler dev` + `scripts/smoke.sh` pass locally, including a live Open-Meteo weather lookup.
 
 ### Git / GitHub

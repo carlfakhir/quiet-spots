@@ -29,8 +29,7 @@ favorite button → quiet alerts.
 I had experience with programming, backends, and Git before this project, but less experience with Swift and iOS development.
 
 ### Why I chose this and what I hoped to learn
-I wanted to build something original rather than just run a sample. Quiet Spots came out of brainstorming app ideas with
-Claude, and I chose it because it addresses a practical campus problem: helping Georgia Tech students find quieter places
+I wanted to build something original rather than just run a sample. I chose Quiet Spots because it addresses a practical campus problem: helping Georgia Tech students find quieter places
 to study using shared noise reports. I wanted to explore how an iPhone app could combine microphone readings, location,
 and a backend, and since I was newer to Swift and iOS, it was a way to learn the platform while building on backend and
 Git skills I already had.
@@ -38,8 +37,6 @@ Git skills I already had.
 ### What I learned
 - How an iOS interface, device features (microphone, GPS, maps, notifications), and a backend fit together into one product.
 - Real devices add steps a simulator hides: code signing, Developer Mode, trusting the developer profile, permission prompts.
-- Using AI for coding still requires clear direction and hands-on testing. Next time I would spend more time understanding
-  each change as it is introduced instead of reviewing larger batches afterward.
 
 ## Requirement checklist
 
@@ -83,56 +80,8 @@ Git skills I already had.
 | ![](screenshots/16-device-report-posted.png) | **Real measurement on my iPhone.** I measured Crosland Tower 1st Floor at 50 dB (Moderate). The report shows the "On site" badge because GPS confirmed I was at the spot, and the page shows live weather. |
 | ![](screenshots/17-device-account-with-report.png) | **My account on the device** after posting, loaded from `GET /me` on the live API. |
 
-## References (in the order I used them)
-
-> Honest split: **"Used directly"** means the resource was actually opened, downloaded, or run.
-> **"Framework documentation"** lists the official docs for the APIs in the code. The code was written by Claude Code
-> from its own knowledge of these frameworks, not by reading these pages during the project.
-> I did not work through the SwiftUI tutorial pages step by step; I started from Apple's finished project and learned by
-> modifying it and testing each stage.
-
-### Used directly
-1. **Mac App Store: Xcode 27**. Installed the IDE. Learned the command-line tools alone can't build apps, and that
-   `xcode-select`, license acceptance, and `-runFirstLaunch` need admin rights.
-2. **Course resource docs** ([resource doc 1](https://docs.google.com/document/d/1QMMM9BTS7GB3WujJDrXqdTqGYNvx3_rp1TzdKJ4vfM8/edit),
-   [resource doc 2](https://docs.google.com/document/d/1ImiDiXD3tflsosJKj1U_nRopTYPDRFVImCj4UQjnKS0/edit)). I downloaded and read both to choose a direction;
-   the "iOS Core Motion / sensors" entry pointed toward using a device sensor.
-3. **Kodeco, [Your First iOS and SwiftUI App](https://www.kodeco.com/4919757-your-first-ios-and-swiftui-app)** (from the course list).
-   Used as a beginner reference for SwiftUI app structure. I didn't build its project: it targets Xcode 11 / iOS 13 (2019)
-   and the materials need a sign-in, so Apple's current sample became the starting point instead.
-4. **Apple, [SwiftUI Tutorials: Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input)**.
-   Downloaded the completed project (`HandlingUserInput.zip`) and used it as the starting point: built it unmodified on my
-   iPhone, then modified it into Quiet Spots.
-5. **[GitHub CLI](https://cli.github.com/)** on GT Enterprise GitHub. Created the repo, labels, and issues from the terminal.
-6. **[XcodeGen](https://github.com/yonaskolb/XcodeGen)**. Installed with Homebrew; generates the Xcode project from `ios/project.yml`.
-7. **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)** (Cloudflare CLI). Local dev server, D1 database, migrations, secrets, deploy.
-   Its error messages guided the workers.dev subdomain fix.
-8. **[Cloudflare REST API](https://developers.cloudflare.com/api/)**. Registered the workers.dev subdomain when Wrangler's interactive prompt couldn't run.
-9. **[Open-Meteo API](https://open-meteo.com/)**. Called live by the backend for weather (no API key).
-10. **[Playwright](https://playwright.dev/)**. Opened pages that need JavaScript (found the sample's download link) and screenshotted the web dashboard to check its layout.
-
-### Framework documentation (APIs used in the code)
-- Apple: [SwiftUI](https://developer.apple.com/documentation/swiftui), [AVAudioRecorder](https://developer.apple.com/documentation/avfaudio/avaudiorecorder) (microphone metering),
-  [CoreLocation](https://developer.apple.com/documentation/corelocation), [MapKit for SwiftUI](https://developer.apple.com/documentation/mapkit/mapkit-for-swiftui),
-  [UserNotifications](https://developer.apple.com/documentation/usernotifications), [BackgroundTasks](https://developer.apple.com/documentation/backgroundtasks),
-  [Keychain Services](https://developer.apple.com/documentation/security/keychain-services),
-  [String Catalogs](https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog),
-  [XCTest UI testing](https://developer.apple.com/documentation/xctest/user-interface-tests)
-- Push comparison: [APNs](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns), [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/client)
-- Backend: [Cloudflare Workers](https://developers.cloudflare.com/workers/), [D1](https://developers.cloudflare.com/d1/), [Hono](https://hono.dev/)
-
-### AI / virtual teammate
-- **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. It substantively:
-  checked my environment and walked me through Xcode and device setup; proposed the architecture; wrote the backend,
-  the iOS changes on top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy;
-  and debugged the problems listed below. Dated log of what I asked for, what it did, and what I checked:
-  [`docs/ai-log.md`](ai-log.md).
-
-  **How I used it:** I chose the app idea, directed the features and design choices (for example: build on a real sample so
-  the modification is visible, make it original, keep commits under my account), personally tested the app on my iPhone,
-  and gave feedback. Claude provided substantial coding assistance; I guided what we were building and checked how it worked.
-  **What I learned:** AI can move quickly, but it needs clear direction and hands-on testing, and I'd review each change as
-  it's introduced next time.
+## References
+The annotated reference list is on its own page: [`docs/REFERENCES.md`](REFERENCES.md).
 
 ## Problems I had to debug
 Details and fixes for each are in the [dev journal](dev-journal.md).
@@ -183,8 +132,9 @@ f7d950d  Sep 14 21:05  Add screenshots of Quiet Spots running on iPhone
 2b010e8  Sep 14 21:05  Update git history in submission draft
 ec563d7  Sep 14 21:05  Fix commit count in submission draft
 e45a186  Sep 14 21:07  Separate references actually used from framework documentation
-a08872e  Sep 14 21:09  Add background, motivation, takeaways, and AI reflection to submission
-f1374a2  Sep 14 21:17  Add screenshots of a real noise report posted from iPhone
+509b6fe  Sep 14 21:09  Add background, motivation, takeaways, and reflection to submission
+8b40439  Sep 14 21:17  Add screenshots of a real noise report posted from iPhone
+ba7bd42  Sep 15 17:12  Move repo to personal GitHub and update links and commit hashes
 ```
 ✏️ _Update with `git log --oneline` after the partner swap, and add a screenshot of the network graph or the merged PRs._
 
