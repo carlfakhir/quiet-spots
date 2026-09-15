@@ -159,3 +159,36 @@ I set the Simulator's location to the spot with `xcrun simctl location … set`.
 
 - **Copy bug** spotted in the screenshots: "1 reports in the last 2 hours". Fixed with SwiftUI automatic grammar agreement
   (`^[\(n) report](inflect: true)`).
+
+**Git mistake and fix:** my deploy commit used `git add -A` and accidentally swept in half-finished Stage 3 iOS files,
+so its message didn't match its contents. Because no one had cloned the repo yet, I split it with
+`git reset --soft HEAD~1`, re-committed the deploy files and the Stage 3 files separately, and pushed with `--force-with-lease`.
+**Lesson:** stage specific paths (`git add backend/wrangler.toml …`) and check `git show --stat` before pushing.
+
+## iOS Stage 4 — Map tab and quiet alerts
+- **Map tab** (MapKit): every spot is a pin showing its dB, colored quiet/moderate/loud, with a legend and the user's location.
+  Tapping a pin opens the same spot page.
+- **Quiet alerts** (UserNotifications + BackgroundTasks): after each refresh, the app compares each starred spot's level to the
+  last level it saw and posts a local notification when one turns *quiet*. It also registers a background app refresh task
+  (`.backgroundTask(.appRefresh)`), so iOS can wake the app periodically to check while it's closed.
+- Notifications show as banners even while the app is open (`UNUserNotificationCenterDelegate.willPresent`).
+- A "Send a test alert" button makes the feature demoable without waiting for data to change.
+
+**Local notifications vs. push (the comparison the assignment asks for):**
+
+| | Local notification (what I built) | Remote push via APNs / Firebase Cloud Messaging |
+|---|---|---|
+| Who decides to alert | The app, after it fetches data | The server, when a report comes in |
+| Works when app is closed | Only when iOS grants background refresh time (not guaranteed, often 15+ min apart) | Yes, delivered right away |
+| Setup | Permission prompt + a few lines of code | Paid Apple Developer Program ($99/yr) for push capability, APNs key, server stores device tokens |
+| Backend involvement | None | Server must track who starred what and send the push |
+
+Firebase (listed in the course resources) wraps APNs with an easier API, but it still needs the APNs key from a paid account,
+which a free Personal Team can't create. Local notifications were the realistic choice here, and the trade-off is timeliness.
+
+- **Test failure:** the UI test couldn't find the banner even though it appeared. The **screen recording attached to the
+  test result** showed "Crosland Tower 4th Floor is quiet now" on screen. The query searched only `otherElements`;
+  SpringBoard exposes the banner as a different element type. **Fix:** search `descendants(matching: .any)`. Passed.
+- Test alerts now say they're a test, so they don't claim a spot is quiet when it isn't.
+
+![map and alerts](screenshots/08-stage4-map-and-alerts.png)

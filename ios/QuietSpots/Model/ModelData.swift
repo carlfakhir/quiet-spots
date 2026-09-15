@@ -40,6 +40,7 @@ class ModelData {
             spots = try await APIClient.shared.get("spots")
             loadError = nil
             lastUpdated = .now
+            await QuietAlerts.check(spots: spots, favoriteIDs: favoriteIDs)
         } catch {
             loadError = error.localizedDescription
         }

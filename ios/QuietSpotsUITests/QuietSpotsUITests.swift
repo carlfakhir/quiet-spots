@@ -62,6 +62,50 @@ final class QuietSpotsUITests: XCTestCase {
         snapshot(app, "07-report-posted")
     }
 
+    func testMapAndQuietAlerts() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["-uiTesting"]
+        app.launch()
+
+        // Map tab shows pins for the spots.
+        app.tabBars.buttons["Map"].tap()
+        XCTAssertTrue(app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Crosland Tower 4th Floor'")).firstMatch
+            .waitForExistence(timeout: 10))
+        snapshot(app, "08-map")
+
+        // Sign in if needed so the Account tab shows settings.
+        app.tabBars.buttons["Account"].tap()
+        if !app.buttons["Sign out"].waitForExistence(timeout: 3) {
+            app.buttons["Create account"].firstMatch.tap()
+            app.textFields["Username"].tap()
+            app.textFields["Username"].typeText("alerts_\(Int.random(in: 1000...9999))")
+            app.secureTextFields["Password"].tap()
+            app.secureTextFields["Password"].typeText("password123")
+            app.buttons["auth.submit"].tap()
+            XCTAssertTrue(app.buttons["Sign out"].waitForExistence(timeout: 10))
+            if app.buttons["Not Now"].waitForExistence(timeout: 3) { app.buttons["Not Now"].tap() }
+        }
+
+        // Turn on alerts and accept the system permission prompt.
+        let toggle = app.switches["Alert me when a favorite gets quiet"]
+        XCTAssertTrue(toggle.waitForExistence(timeout: 5))
+        if toggle.value as? String != "1" {
+            toggle.switches.firstMatch.tap()
+            let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+            let allow = springboard.buttons["Allow"]
+            if allow.waitForExistence(timeout: 5) { allow.tap() }
+        }
+        let testButton = app.buttons["Send a test alert"]
+        XCTAssertTrue(testButton.waitForExistence(timeout: 5))
+        snapshot(app, "09-alert-settings")
+        testButton.tap()
+
+        let banner = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+            .descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'is quiet now'")).firstMatch
+        XCTAssertTrue(banner.waitForExistence(timeout: 10), "Notification banner should appear")
+        snapshot(XCUIApplication(bundleIdentifier: "com.apple.springboard"), "10-quiet-alert")
+    }
+
     private func snapshot(_ app: XCUIApplication, _ name: String) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name

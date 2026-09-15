@@ -66,6 +66,8 @@ struct AccountView: View {
                 }
             }
 
+            AlertsSection()
+
             if let error {
                 Section { Text(error).foregroundStyle(.red) }
             }
@@ -92,4 +94,5 @@ struct AccountView: View {
 #Preview {
     AccountView()
         .environment(AuthStore())
+        .environment(ModelData())
 }
