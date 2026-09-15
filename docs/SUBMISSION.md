@@ -1,6 +1,6 @@
 # Assignment 1 Submission — Quiet Spots
 
-> **Draft.** Remaining: ✏️ my change to my partner's repo (his repo had no code pushed yet).
+> **Draft.** Remaining: ✏️ my partner merges my pull request and runs it on his phone.
 
 ## Name
 Carl Fakhir (GT username `cfakhir3`)
@@ -45,7 +45,7 @@ Git skills I already had.
 | 1 | Install a dev environment | Xcode 27 + iOS 27 SDK, Simulator, free Personal Team signing. [Journal: Xcode](dev-journal.md#xcode) · [HelloDevice on my iPhone](screenshots/01-HelloDevice-on-iPhone.png) |
 | 2 | Build an existing sample on a device, with user input | Apple Landmarks sample committed unmodified (`01543ca`), built from that exact commit and run on my iPhone 17 Pro: [screenshot](screenshots/02-landmarks-sample-on-iphone.png). User input: favorite button and "Favorites only" toggle. |
 | 3 | Git account, check in code, track tasks/bugs | [github.com/carlfakhir/quiet-spots](https://github.com/carlfakhir/quiet-spots) (public), 20+ commits, [Issues](https://github.com/carlfakhir/quiet-spots/issues) with labels, [dev journal](dev-journal.md) |
-| 4 | Partner swap both ways | **His change to my repo:** [PR #11](https://github.com/carlfakhir/quiet-spots/pull/11), reviewed, merged, and run on my iPhone ([screenshot](screenshots/18-partner-change-last-updated.png), [PR](screenshots/19-partner-pr11-review-merged.png), [git graph](screenshots/22-git-graph-partner-merge.png)). ✏️ _My change to his repo: [jmbgat/campusFinder](https://github.com/jmbgat/campusFinder)._ |
+| 4 | Partner swap both ways | **His change to my repo:** [PR #11](https://github.com/carlfakhir/quiet-spots/pull/11), reviewed, merged, and run on my iPhone ([screenshot](screenshots/18-partner-change-last-updated.png), [PR](screenshots/19-partner-pr11-review-merged.png), [git graph](screenshots/22-git-graph-partner-merge.png)). **My change to his repo:** [jmbgat/campusFinder PR #1](https://github.com/jmbgat/campusFinder/pull/1), built and tested in the Simulator against his local backend and installed on my iPhone ([before/after](screenshots/23-my-change-before-after.png), [PR](screenshots/24-my-pr-to-partner.png), [branch and commit](screenshots/26-my-branch-commit-pr.png)). |
 | 5 | Deployed web service with REST API, in git | [quiet-spots-api.cfakhir3.workers.dev](https://quiet-spots-api.cfakhir3.workers.dev/api), code in [`backend/`](../backend/), smoke test passes in production |
 
 | Exceptional item | Evidence |
@@ -84,6 +84,11 @@ Git skills I already had.
 | ![](screenshots/20-partner-pr11-files-changed.png) | **Files changed in PR #11:** 5 lines in `SpotRow.swift` plus a one-line README edit. No signing or project-file changes, so it merged cleanly. |
 | ![](screenshots/21-partner-branch.png) | **His feature branch** `feature/add-last-updated-timestamp` on GitHub, linked to PR #11. |
 | ![](screenshots/22-git-graph-partner-merge.png) | **Git graph** showing his commit on its own branch and the merge commit that brought it into `main`. |
+| ![](screenshots/23-my-change-before-after.png) | **My change to my partner's app (CampusPulse), before and after.** Upcoming events only said when they end; now they say when they start ("Starts 6:49 PM", or "Starts Wed 8:09 PM" if it isn't today). Simulator, running against his local FastAPI backend. |
+| ![](screenshots/24-my-pr-to-partner.png) | **My pull request #1 on `jmbgat/campusFinder`:** the problem, the change, and how I tested it. |
+| ![](screenshots/25-my-pr-files-changed.png) | **Files changed in my PR:** one file, `EventCardView.swift` (+20 / −3), and no signing or project-file changes. |
+| ![](screenshots/26-my-branch-commit-pr.png) | **My branch, commit, and PR from the terminal:** `git branch -vv`, the commit with its message, `gh pr view`, and the graph showing my commit on top of his `main`. |
+| ![](screenshots/27-partner-repo-branches.png) | **Branches on his repo:** my `feature/show-start-time-for-upcoming-events` branch linked to PR #1. |
 
 ## References
 The annotated reference list is on its own page: [`docs/REFERENCES.md`](REFERENCES.md).
@@ -144,7 +149,7 @@ bedd2e3  Sep 15 17:18  Carl Fakhir   Give references their own page and keep vir
 c4e8abd  Sep 15 17:51  jmb245        Add last updated timestamp to spot list
 1293c8a  Sep 15 17:55  carlfakhir    Merge pull request #11 from carlfakhir/feature/add-last-updated-timestamp
 ```
-Branch and merge view: [git graph](screenshots/22-git-graph-partner-merge.png) · [PR #11](https://github.com/carlfakhir/quiet-spots/pull/11). ✏️ _Update again after my PR to my partner's repo._
+Branch and merge view: [git graph](screenshots/22-git-graph-partner-merge.png) · [PR #11](https://github.com/carlfakhir/quiet-spots/pull/11). My change to his repo: [PR #1](https://github.com/jmbgat/campusFinder/pull/1) · [branch, commit, and PR](screenshots/26-my-branch-commit-pr.png).
 
 Evidence of git practice: renaming with `git mv` so history follows files from the Apple sample, one commit per stage,
 a history rewrite that was fixed before anyone cloned, Issues closed with commit references, and a partner change that came in
@@ -164,8 +169,17 @@ on a feature branch through a reviewed pull request.
   He built it on his own machine without committing his signing changes, so it merged with no conflicts. I pulled his branch,
   built it, installed it on my iPhone, approved the PR, merged it, and ran the merged `main` on my phone
   ([screenshot](screenshots/18-partner-change-last-updated.png)).
-- **What I changed in his repo:** ✏️ _When I accepted his invite, `campusFinder` was still empty (no commits), so there was nothing
-  to build yet. To do once he pushes his code: PR link, what it did, how I built and tested it._
+- **What I changed in his repo:** his app, CampusPulse, lets students post campus events and see them in a feed and on a map.
+  While running it I noticed that cards for upcoming events said "Upcoming · Ends 8:09 PM", so you couldn't tell when an event
+  starts without opening it. On a feature branch I changed `EventCardView.swift` so upcoming events show "Starts 6:49 PM"
+  (with the weekday if it isn't today) and events already happening still show when they end
+  ([PR #1](https://github.com/jmbgat/campusFinder/pull/1), [before/after](screenshots/23-my-change-before-after.png)).
+  To test it I ran his FastAPI backend locally with its seeded demo events, built the app for the Simulator with the location
+  set to campus, and also built and installed it on my iPhone with my own team and bundle ID passed on the command line, so
+  his Xcode project file didn't change. ✏️ _He merges it and runs it on his phone._
+- **Problems when running his app:** my iPhone had hit the free Apple account's limit of 3 sideloaded apps, so I removed my
+  earlier HelloDevice test app to install his. His backend only runs on his Mac so far (`127.0.0.1`), so on a real phone the
+  feed can't load until it's hosted or pointed at the Mac's Wi-Fi IP. That's why the screenshots are from the Simulator.
 - **What I learned about working with others:** how important communication and code organization are.
 - **What I'd do differently next time:** set up my repos so they're friendlier for others to work in, with a clearer layout of
   how things are organized.

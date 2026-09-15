@@ -253,3 +253,31 @@ which a free Personal Team can't create. Local notifications were the realistic 
   [git graph](screenshots/22-git-graph-partner-merge.png). GitHub's Network graph page only loads for signed-in users, so the
   git graph image was made from `git log --graph` instead.
 
+## 2026-09-15 — Partner swap, part 2: my change to my partner's repo
+- **His repo:** Jad pushed CampusPulse to [jmbgat/campusFinder](https://github.com/jmbgat/campusFinder): a SwiftUI app for
+  posting short-lived campus events (feed, map, post, saved) with a FastAPI + SQLite backend.
+- **Running it:** created a virtualenv in `backend/` (ignored by his `.gitignore`), installed `requirements.txt`, and started
+  `uvicorn app.main:app` on `127.0.0.1:8000`, which seeds 5 demo events. Built `ios/CampusPulse.xcodeproj` for the Simulator,
+  granted location, and set the Simulator's location to campus so distances show.
+- **Finding the change:** on the Home feed, upcoming events read "Upcoming · Ends 8:09 PM". The card only ever showed the end
+  time, so for something that hasn't started you couldn't tell when to go.
+- **The change:** branch `feature/show-start-time-for-upcoming-events`. In `EventCardView.swift` the `endLabel` became a
+  `timeLabel` that switches on the event's status: upcoming shows "Starts …", happening now shows "Ends …", ended shows "Ended …".
+  Times that aren't today include the weekday ("Starts Wed 8:09 PM"). The card is shared by Home, Map, and Saved, so one change
+  covers all three. ![before and after](screenshots/23-my-change-before-after.png)
+- **Keeping his project untouched:** his Mac's default git identity differs from my GitHub account, so I set a repo-local
+  name/email first. For my iPhone build I passed `DEVELOPMENT_TEAM` and `PRODUCT_BUNDLE_IDENTIFIER` on the `xcodebuild` command
+  line, so `project.pbxproj` never changed and the diff is only `EventCardView.swift` (+20 / −3).
+- **Problem: iPhone app limit.** Installing failed with *"This device has reached the maximum number of installed apps using a
+  free developer profile"*. A free Apple account allows 3 sideloaded apps, and I had Landmarks, Quiet Spots, and my HelloDevice
+  test app. Removed HelloDevice (its screenshot is already saved) and the install worked.
+- **Limitation:** his app points at `http://127.0.0.1:8000`, which on a real phone is the phone itself, so the feed can't load
+  on my iPhone until his backend is hosted or pointed at a Mac's Wi-Fi IP. The screenshots are from the Simulator for that reason.
+- **Commit and PR:** committed, pushed the branch, and opened [PR #1](https://github.com/jmbgat/campusFinder/pull/1) with the
+  problem, the change, and how I tested it. [PR](screenshots/24-my-pr-to-partner.png) ·
+  [files changed](screenshots/25-my-pr-files-changed.png) · [terminal: branch, commit, PR](screenshots/26-my-branch-commit-pr.png) ·
+  [branches](screenshots/27-partner-repo-branches.png)
+- **Extra:** took Simulator screenshots of every screen in his app (Home, Map, Post, Saved, event detail, filters) and sent
+  them to Jad separately. They're not in this repo. To reach screens behind taps, I built a throwaway copy of his project
+  outside the repo with a launch variable that opens a given screen, so his code wasn't changed.
+
