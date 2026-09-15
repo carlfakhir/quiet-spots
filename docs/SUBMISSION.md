@@ -1,7 +1,6 @@
 # Assignment 1 Submission — Quiet Spots
 
-> **Draft.** Sections marked ✏️ need your own words (why you chose this, what you learned, the partner story).
-> Sections marked 📱 still need a capture from your phone. Everything else is filled in from the repo, journal, and screenshots.
+> **Draft.** Remaining: ✏️ partner section (after the swap) and 📱 on-device measuring screenshots.
 
 ## Name
 Carl Fakhir (GT username `cfakhir3`)
@@ -26,9 +25,21 @@ It began as Apple's SwiftUI **Landmarks** sample ("Handling User Input") and was
 shows a real sample app being built on and modified: national parks → study spots, bundled JSON → REST API,
 favorite button → quiet alerts.
 
-✏️ **Why I chose this and what I hoped to learn:**
-_(Your words. Prompts: finding a quiet study spot on campus is a real problem you've had? You wanted to try iOS/Swift,
-device sensors, and deploying a real backend? What did you know before, and what was new?)_
+### Background
+I had experience with programming, backends, and Git before this project, but less experience with Swift and iOS development.
+
+### Why I chose this and what I hoped to learn
+I wanted to build something original rather than just run a sample. Quiet Spots came out of brainstorming app ideas with
+Claude, and I chose it because it addresses a practical campus problem: helping Georgia Tech students find quieter places
+to study using shared noise reports. I wanted to explore how an iPhone app could combine microphone readings, location,
+and a backend, and since I was newer to Swift and iOS, it was a way to learn the platform while building on backend and
+Git skills I already had.
+
+### What I learned
+- How an iOS interface, device features (microphone, GPS, maps, notifications), and a backend fit together into one product.
+- Real devices add steps a simulator hides: code signing, Developer Mode, trusting the developer profile, permission prompts.
+- Using AI for coding still requires clear direction and hands-on testing. Next time I would spend more time understanding
+  each change as it is introduced instead of reviewing larger batches afterward.
 
 ## Requirement checklist
 
@@ -76,16 +87,18 @@ device sensors, and deploying a real backend? What did you know before, and what
 > Honest split: **"Used directly"** means the resource was actually opened, downloaded, or run.
 > **"Framework documentation"** lists the official docs for the APIs in the code. The code was written by Claude Code
 > from its own knowledge of these frameworks, not by reading these pages during the project.
-> ✏️ Add any tutorials or videos you watch or read yourself (item 1 asks for this).
+> I did not work through the SwiftUI tutorial pages step by step; I started from Apple's finished project and learned by
+> modifying it and testing each stage.
 
 ### Used directly
 1. **Mac App Store: Xcode 27**. Installed the IDE. Learned the command-line tools alone can't build apps, and that
    `xcode-select`, license acceptance, and `-runFirstLaunch` need admin rights.
 2. **Course resource docs** ([resource doc 1](https://docs.google.com/document/d/1QMMM9BTS7GB3WujJDrXqdTqGYNvx3_rp1TzdKJ4vfM8/edit),
-   [resource doc 2](https://docs.google.com/document/d/1ImiDiXD3tflsosJKj1U_nRopTYPDRFVImCj4UQjnKS0/edit)). Read to choose a direction;
+   [resource doc 2](https://docs.google.com/document/d/1ImiDiXD3tflsosJKj1U_nRopTYPDRFVImCj4UQjnKS0/edit)). I downloaded and read both to choose a direction;
    the "iOS Core Motion / sensors" entry pointed toward using a device sensor.
 3. **Kodeco, [Your First iOS and SwiftUI App](https://www.kodeco.com/4919757-your-first-ios-and-swiftui-app)** (from the course list).
-   Opened and **rejected**: it targets Xcode 11 / iOS 13 (2019) and the project materials need a sign-in.
+   Used as a beginner reference for SwiftUI app structure. I didn't build its project: it targets Xcode 11 / iOS 13 (2019)
+   and the materials need a sign-in, so Apple's current sample became the starting point instead.
 4. **Apple, [SwiftUI Tutorials: Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input)**.
    Downloaded the completed project (`HandlingUserInput.zip`) and used it as the starting point: built it unmodified on my
    iPhone, then modified it into Quiet Spots.
@@ -113,7 +126,12 @@ device sensors, and deploying a real backend? What did you know before, and what
   the iOS changes on top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy;
   and debugged the problems listed below. Dated log of what I asked for, what it did, and what I checked:
   [`docs/ai-log.md`](ai-log.md).
-  ✏️ _How you directed it, what you verified or changed yourself, and what you learned from working this way._
+
+  **How I used it:** I chose the app idea, directed the features and design choices (for example: build on a real sample so
+  the modification is visible, make it original, keep commits under my account), personally tested the app on my iPhone,
+  and gave feedback. Claude provided substantial coding assistance; I guided what we were building and checked how it worked.
+  **What I learned:** AI can move quickly, but it needs clear direction and hands-on testing, and I'd review each change as
+  it's introduced next time.
 
 ## Problems I had to debug
 Details and fixes for each are in the [dev journal](dev-journal.md).
