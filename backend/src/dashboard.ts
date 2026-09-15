@@ -34,6 +34,14 @@ export const dashboardHtml = /* html */ `<!doctype html>
   footer { color: var(--muted); font-size: .85rem; padding: 12px 20px 40px; }
   a { color: var(--navy); }
   .empty { color: var(--muted); padding: 24px 0; }
+  h2 { font: 700 1.6rem/1.1 "Barlow Condensed", sans-serif; color: var(--navy); margin: 36px 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 14px; font-size: .95rem; }
+  .totals { display: flex; gap: 32px; flex-wrap: wrap; margin-bottom: 18px; }
+  .totals b { display: block; font: 700 2rem/1 "Barlow Condensed", sans-serif; color: var(--ink); }
+  .totals span { color: var(--muted); font-size: .9rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  td { padding: 6px 0; border-bottom: 1px solid var(--line); }
+  td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -49,6 +57,11 @@ export const dashboardHtml = /* html */ `<!doctype html>
     <span style="--c:var(--unknown)">No reports in the last 2 hours</span>
   </div>
   <ol id="spots"><li class="empty">Loading spots…</li></ol>
+
+  <h2>How people use it</h2>
+  <p class="sub">Anonymous activity events sent by the iPhone app.</p>
+  <div class="totals" id="totals"></div>
+  <table><tbody id="events"></tbody></table>
 </main>
 <footer class="wrap">
   Updates every 30 seconds. Sorted quietest first. Data from the <a href="/api">Quiet Spots API</a>.
@@ -83,8 +96,26 @@ export const dashboardHtml = /* html */ `<!doctype html>
       document.getElementById('spots').innerHTML = '<li class="empty">Could not reach the API. Retrying in 30 seconds.</li>';
     }
   }
+  const eventNames = {
+    app_open: 'App opened', screen_view: 'Screens viewed', report_posted: 'Reports posted',
+    report_deleted: 'Reports deleted', quiet_alerts_toggled: 'Alert setting changed', quiet_alert_sent: 'Alerts delivered',
+  };
+  async function loadStats() {
+    try {
+      const s = await (await fetch('/stats')).json();
+      document.getElementById('totals').innerHTML =
+        '<div><b>' + s.users + '</b><span>accounts</span></div>' +
+        '<div><b>' + s.reports + '</b><span>noise reports</span></div>' +
+        '<div><b>' + s.active_users_24h + '</b><span>active in the last 24 h</span></div>';
+      const rows = s.events.filter((e) => eventNames[e.name]);
+      document.getElementById('events').innerHTML = rows.length
+        ? rows.map((e) => '<tr><td>' + eventNames[e.name] + '</td><td>' + e.n + '</td></tr>').join('')
+        : '<tr><td class="empty">No activity yet.</td><td></td></tr>';
+    } catch {}
+  }
   load();
-  setInterval(load, 30000);
+  loadStats();
+  setInterval(() => { load(); loadStats(); }, 30000);
 </script>
 </body>
 </html>`
