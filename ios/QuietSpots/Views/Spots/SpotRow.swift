@@ -14,9 +14,16 @@ struct SpotRow: View {
 
     var body: some View {
         HStack {
-            CategoryBadge(category: spot.category, size: 44)
+            CategoryBadge(category: spot.category, size: 44, tint: spot.noiseLevel.color)
             VStack(alignment: .leading) {
-                Text(spot.name)
+                HStack(spacing: 4) {
+                    Text(spot.name)
+                    if modelData.isFavorite(spot) {
+                        Image(systemName: "star.fill")
+                            .font(.caption)
+                            .foregroundStyle(.yellow)
+                    }
+                }
                 Text(spot.building)
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -24,11 +31,20 @@ struct SpotRow: View {
 
             Spacer()
 
-            if modelData.isFavorite(spot) {
-                Image(systemName: "star.fill")
-                    .foregroundStyle(.yellow)
+            VStack(alignment: .trailing) {
+                if let db = spot.avgDb {
+                    Text("\(Int(db.rounded())) dB")
+                        .font(.headline.monospacedDigit())
+                        .foregroundStyle(spot.noiseLevel.color)
+                } else {
+                    Text("–").foregroundStyle(.secondary)
+                }
+                Text(spot.noiseLevel.label)
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
         }
+        .accessibilityElement(children: .combine)
     }
 }
 

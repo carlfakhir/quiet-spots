@@ -11,11 +11,13 @@ import SwiftUI
 @main
 struct QuietSpotsApp: App {
     @State private var modelData = ModelData()
+    @State private var auth = AuthStore()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environment(modelData)
+                .environment(auth)
         }
     }
 }

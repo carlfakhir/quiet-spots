@@ -96,3 +96,16 @@ a list of places, a detail page with a map, a favorite button, and a filter togg
   The generated project is still committed so anyone can open it in Xcode without installing XcodeGen.
 - Accent color set to GT Navy (Tech Gold in dark mode).
 - Built and ran in the iOS 27 Simulator. ![stage 1](screenshots/04-stage1-spot-list.png)
+
+## iOS Stage 2 — REST API + accounts
+- `APIClient` (async/await `URLSession`) with snake_case ↔ camelCase JSON conversion and readable server errors.
+- Spots refresh from `GET /spots` on launch and with pull-to-refresh; the bundled JSON stays as an offline fallback.
+  List is now sorted quietest first with a colored badge and dB reading.
+- `AuthStore` + `SignInView`: sign in / create account against `/auth/login` and `/auth/register`.
+  The token is stored in the **Keychain** (not UserDefaults) and sent as `Authorization: Bearer …`. A 401 signs the user out.
+- `AccountView` shows `/me`: report count, spots measured, recent reports.
+- The Simulator uses `http://localhost:8787` (the Mac's `wrangler dev`); a physical iPhone uses the deployed URL.
+  Needed `NSAllowsLocalNetworking` in `Info.plist` for plain HTTP to localhost.
+- **Problem:** build failed: *"'Tab' is only available in iOS 18.0 or newer"*. Apple's sample targeted iOS 17.
+  **Fix:** raised the deployment target to iOS 18 (my phone runs iOS 26).
+- ![stage 2](screenshots/05-stage2-live-levels.png)
