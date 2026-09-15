@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Crosland Tower 4th Floor",
+    "building": "Crosland Tower",
+    "area": "4th floor",
+    "category": "Library",
+    "lat": 33.77435,
+    "lon": -84.39561,
+    "description": "Silent-study floor of the library tower with tall windows over Tech Green."
+  },
+  {
+    "id": 2,
+    "name": "Crosland Tower 1st Floor",
+    "building": "Crosland Tower",
+    "area": "1st floor",
+    "category": "Library",
+    "lat": 33.77425,
+    "lon": -84.39571,
+    "description": "Entrance level with group tables. Usually busy between classes."
+  },
+  {
+    "id": 3,
+    "name": "Price Gilbert Grand Reading Room",
+    "building": "Price Gilbert Memorial Library",
+    "area": "Main reading room",
+    "category": "Library",
+    "lat": 33.77395,
+    "lon": -84.3953,
+    "description": "Large reading room with long tables and natural light."
+  },
+  {
+    "id": 4,
+    "name": "Clough Commons 2nd Floor",
+    "building": "Clough Undergraduate Learning Commons",
+    "area": "2nd floor",
+    "category": "Lounge",
+    "lat": 33.7747,
+    "lon": -84.3964,
+    "description": "Open study area with whiteboards next to classrooms."
+  },
+  {
+    "id": 5,
+    "name": "Clough Commons Rooftop",
+    "building": "Clough Undergraduate Learning Commons",
+    "area": "Roof garden",
+    "category": "Outdoors",
+    "lat": 33.7748,
+    "lon": -84.3963,
+    "description": "Green roof with seating. Quiet except when events are running."
+  },
+  {
+    "id": 6,
+    "name": "Klaus Atrium",
+    "building": "Klaus Advanced Computing Building",
+    "area": "Atrium",
+    "category": "Lounge",
+    "lat": 33.7771,
+    "lon": -84.3963,
+    "description": "Central atrium with couches. Echoes easily when crowded."
+  },
+  {
+    "id": 7,
+    "name": "College of Computing Commons",
+    "building": "College of Computing Building",
+    "area": "1st floor",
+    "category": "Lounge",
+    "lat": 33.7774,
+    "lon": -84.3973,
+    "description": "Tables near Brewed Awakening coffee in CoC."
+  },
+  {
+    "id": 8,
+    "name": "John Lewis Student Center",
+    "building": "John Lewis Student Center",
+    "area": "Main level",
+    "category": "Lounge",
+    "lat": 33.7738,
+    "lon": -84.3989,
+    "description": "Lounges and food court. Rarely quiet at lunch."
+  },
+  {
+    "id": 9,
+    "name": "Scheller Library Nook",
+    "building": "Scheller College of Business",
+    "area": "Tech Square",
+    "category": "Library",
+    "lat": 33.7763,
+    "lon": -84.3884,
+    "description": "Business school study rooms and lounge in Tech Square."
+  },
+  {
+    "id": 10,
+    "name": "Kendeda Building Atrium",
+    "building": "Kendeda Building",
+    "area": "Atrium",
+    "category": "Lounge",
+    "lat": 33.7788,
+    "lon": -84.3997,
+    "description": "Living building with wooden stairs and plenty of daylight."
+  },
+  {
+    "id": 11,
+    "name": "Engineered Biosystems Lobby",
+    "building": "Engineered Biosystems Building",
+    "area": "Lobby",
+    "category": "Cafe",
+    "lat": 33.7806,
+    "lon": -84.398,
+    "description": "Quiet lobby seating on the north side of campus."
+  },
+  {
+    "id": 12,
+    "name": "Tech Green",
+    "building": "Tech Green",
+    "area": "Lawn",
+    "category": "Outdoors",
+    "lat": 33.7746,
+    "lon": -84.3975,
+    "description": "Main campus lawn. Loud during tabling, peaceful in the evening."
+  }
+]

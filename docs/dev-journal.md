@@ -83,3 +83,16 @@ a list of places, a detail page with a map, a favorite button, and a filter togg
 - **Dashboard bug** found by screenshotting with Playwright: text read "last measured never measured". Fixed the copy.
 - Local smoke test: all checks pass. ![dashboard](screenshots/03-web-dashboard-local.png)
 - **Blocked:** `wrangler login` timed out waiting for browser authorization. Deploy is waiting on that.
+
+## iOS Stage 1 — Landmarks → Quiet Spots (local data)
+- Renamed the sample's files with `git mv` so history shows each Apple file becoming its Quiet Spots version
+  (`Landmark.swift` → `Spot.swift`, `LandmarkList` → `SpotList`, `CircleImage` → `CategoryBadge`, …).
+- Replaced the 12 national parks with 12 GT study spots (generated `spotData.json` from the backend's SQL seed so both match).
+- Removed the park photos; each spot shows an SF Symbol badge for its category instead.
+- Favorites moved out of the JSON into `UserDefaults`, because spot data will soon come from the server.
+- Map zoom changed from 0.2° (a whole national park) to 0.004° (a single building).
+- **Switched from Apple's `.xcodeproj` to [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`ios/project.yml`).**
+  Adding many new Swift files to a hand-maintained `project.pbxproj` is error-prone; XcodeGen regenerates it from a short YAML file.
+  The generated project is still committed so anyone can open it in Xcode without installing XcodeGen.
+- Accent color set to GT Navy (Tech Gold in dark mode).
+- Built and ran in the iOS 27 Simulator. ![stage 1](screenshots/04-stage1-spot-list.png)
