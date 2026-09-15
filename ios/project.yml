@@ -27,6 +27,8 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_FILE: QuietSpots/Info.plist
         INFOPLIST_KEY_CFBundleDisplayName: Quiet Spots
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: Quiet Spots uses the microphone to measure how loud a study spot is. No audio is recorded or saved.
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: Your location shows whether you were actually at a spot when you measured it.
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
         INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
         INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
@@ -34,3 +36,21 @@ targets:
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
         DEVELOPMENT_ASSET_PATHS: '"QuietSpots/Preview Content"'
         ENABLE_PREVIEWS: YES
+  QuietSpotsUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [QuietSpotsUITests]
+    dependencies:
+      - target: QuietSpots
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: edu.gatech.cfakhir3.QuietSpotsUITests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  QuietSpots:
+    build:
+      targets:
+        QuietSpots: all
+        QuietSpotsUITests: [test]
+    test:
+      targets: [QuietSpotsUITests]

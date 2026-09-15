@@ -15,6 +15,8 @@ struct SignInView: View {
 
     enum Mode: Hashable { case signIn, createAccount }
 
+    private let isUITesting = ProcessInfo.processInfo.arguments.contains("-uiTesting")
+
     var body: some View {
         Form {
             Section {
@@ -30,11 +32,12 @@ struct SignInView: View {
 
             Section {
                 TextField("Username", text: $username)
-                    .textContentType(.username)
+                    .textContentType(isUITesting ? nil : .username)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                 SecureField("Password", text: $password)
-                    .textContentType(mode == .signIn ? .password : .newPassword)
+                    // UI tests skip content types: iOS's strong-password suggestion swallows typed keys.
+                    .textContentType(isUITesting ? nil : (mode == .signIn ? .password : .newPassword))
             } footer: {
                 if mode == .createAccount {
                     Text("3–24 letters, numbers, or underscores. Password at least 8 characters.")
@@ -55,6 +58,7 @@ struct SignInView: View {
                     }
                 }
                 .disabled(username.isEmpty || password.isEmpty || isWorking)
+                .accessibilityIdentifier("auth.submit")
             }
         }
         .onChange(of: mode) { error = nil }

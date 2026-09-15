@@ -128,3 +128,34 @@ a list of places, a detail page with a map, a favorite button, and a filter togg
   **Fix:** `npm run db:migrate:local` again.
 - `bash scripts/smoke.sh https://quiet-spots-api.cfakhir3.workers.dev`: all checks pass in production, including live Open-Meteo weather.
 
+## iOS Stage 3 — Measure noise, location, weather, shared reports
+- `NoiseMeter` (AVFoundation): records to `/dev/null` with metering on, samples `averagePower` every 0.1 s for 5 s.
+  The mic reports dBFS (0 = max, about −160 = silence), so I add a fixed +90 offset to get an approximate dB SPL.
+  Readings are averaged in the power domain (`10·log10(mean(10^(dB/10)))`) because decibels are logarithmic.
+- `LocationProvider` (CoreLocation): one-shot location; the app shows distance to the spot and the server stores it.
+- Spot page now shows the live 2-hour average, **Open-Meteo weather**, and everyone's recent reports
+  (you can delete your own). Tapping *Measure* while signed out opens sign-in first.
+- Usage events (`screen_view`, `report_posted`, `report_deleted`) sent to `POST /events`.
+- Added `NSMicrophoneUsageDescription` and `NSLocationWhenInUseUsageDescription` (the app crashes on first mic use without them).
+
+### Automated UI test (XCUITest)
+`QuietSpotsUITests` creates an account, opens a spot, measures, votes, posts, and checks the report appears.
+Took four runs to get green, and each failure taught something:
+1. **Failed:** *"Password must be at least 8 characters"* even though the test typed 11. The saved UI hierarchy showed only
+   one character in the field: iOS's **strong password suggestion** (triggered by `.newPassword`) swallowed the keystrokes.
+   **Fix:** the app skips `textContentType` when launched with `-uiTesting`.
+   Same run: the local server returned *"no such table: users"* because adding the production `database_id` gave local dev a new empty DB.
+2. **Failed:** couldn't find a text equal to the username. Sign-up actually worked; `LabeledContent` exposes one combined
+   accessibility label ("Username, tester_1754"), and a **"Save Password?"** system prompt covered the screen.
+   **Fix:** assert on the Sign out button and combined label, dismiss the prompt.
+3. **Failed:** no "Create account" button. The Simulator was **still signed in** from run 2 because Keychain items survive app reinstalls.
+   **Fix:** test signs out first if needed.
+4. **Passed** (42 s). Screenshots below are attachments exported from the test result with `xcrun xcresulttool export attachments`.
+
+The Simulator measured my Mac's microphone (46 dB, "Moderate") and the location check read 0 m because
+I set the Simulator's location to the spot with `xcrun simctl location … set`.
+
+![measure flow](screenshots/06-stage3-measure-flow.png)
+
+- **Copy bug** spotted in the screenshots: "1 reports in the last 2 hours". Fixed with SwiftUI automatic grammar agreement
+  (`^[\(n) report](inflect: true)`).
