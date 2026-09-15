@@ -229,3 +229,27 @@ which a free Personal Team can't create. Local notifications were the realistic 
   open/closed state) with a note giving the original dates and commit references mapped to the new hashes.
 - Kept the GT repo untouched as a backup and disabled pushing to it locally so the rewritten history can't be pushed there by accident.
 
+## 2026-09-15 — Partner swap, part 1: my partner's change to my repo
+- **Access:** invited `jmbgat` as a collaborator with write access after moving the repo (section above). He accepted, and he
+  added me to his repo, `jmbgat/campusFinder`.
+- **His repo was empty:** when I accepted his invite and cloned it, Git warned *"You appear to have cloned an empty repository"*
+  and `git ls-remote` showed no branches. His code was still only on his machine, so my change to his app waits until he pushes.
+- **His branch:** he pushed `feature/add-last-updated-timestamp` (commit `c4e8abd`), which puts a "last updated" time
+  ("just now", "21 hr. ago") under each spot's noise level in `SpotRow.swift`, plus a one-line README edit.
+- **Review before merging:**
+  - The branch started from my latest `main`, and the diff touched only `SpotRow.swift` and `README.md`. His signing Team and
+    bundle ID changes stayed local, which was the thing most likely to break my build.
+  - Checked the data is real: the live `/spots` endpoint returns `last_report_at` (Crosland Tower 1st Floor had my report from
+    Sept 14), and the app decodes snake_case into `lastReportAt`.
+  - Built the branch for the Simulator and for my iPhone 17 Pro, installed it on the phone, and launched it.
+- **No pull request at first:** he had pushed the branch without opening a PR. I asked him to open one so the review and
+  merge would be recorded on GitHub instead of me merging the branch directly. He opened
+  [PR #11](https://github.com/carlfakhir/quiet-spots/pull/11), and I approved and merged it (merge commit, so his commit keeps
+  his name in the history).
+- **After merging:** pulled `main`, rebuilt, and installed it on my iPhone again. For the screenshot I ran the Simulator against
+  the local backend with a few test reports so several rows show a time. ![partner change](screenshots/18-partner-change-last-updated.png)
+- **Evidence:** [PR with review and merge](screenshots/19-partner-pr11-review-merged.png) ·
+  [files changed](screenshots/20-partner-pr11-files-changed.png) · [branch](screenshots/21-partner-branch.png) ·
+  [git graph](screenshots/22-git-graph-partner-merge.png). GitHub's Network graph page only loads for signed-in users, so the
+  git graph image was made from `git log --graph` instead.
+
