@@ -1,6 +1,6 @@
 # Assignment 1 Submission — Quiet Spots
 
-> **Draft.** Remaining: ✏️ my change to my partner's repo (his repo had no code pushed yet), and my own words for the partner narrative.
+> **Draft.** Remaining: ✏️ my change to my partner's repo (his repo had no code pushed yet).
 
 ## Name
 Carl Fakhir (GT username `cfakhir3`)
@@ -151,8 +151,8 @@ a history rewrite that was fixed before anyone cloned, Issues closed with commit
 on a feature branch through a reviewed pull request.
 
 ### Working with my partner
-- **Partner:** ✏️ _name_ (GitHub `jmbgat`). His repo: [jmbgat/campusFinder](https://github.com/jmbgat/campusFinder).
-- **How we communicated:** ✏️ _(in person / text / Chatter?)_
+- **Partner:** Jad Mathew Bardawil (GitHub `jmbgat`). His repo: [jmbgat/campusFinder](https://github.com/jmbgat/campusFinder).
+- **How we communicated:** over text, and we also worked together in person.
 - **Plan:** each of us added the other as a collaborator, then each made one small change to the other's app on a feature branch
   and opened a pull request for the owner to review, merge, and run on their own phone.
 - **Getting access (a problem we solved):** my repo was on GT GitHub and his account is on github.com, so GitHub couldn't find
@@ -166,5 +166,6 @@ on a feature branch through a reviewed pull request.
   ([screenshot](screenshots/18-partner-change-last-updated.png)).
 - **What I changed in his repo:** ✏️ _When I accepted his invite, `campusFinder` was still empty (no commits), so there was nothing
   to build yet. To do once he pushes his code: PR link, what it did, how I built and tested it._
-- **What I learned about working with others:** ✏️
-- **What I'd do differently next time:**
+- **What I learned about working with others:** how important communication and code organization are.
+- **What I'd do differently next time:** set up my repos so they're friendlier for others to work in, with a clearer layout of
+  how things are organized.

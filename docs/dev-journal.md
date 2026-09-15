@@ -230,7 +230,7 @@ which a free Personal Team can't create. Local notifications were the realistic 
 - Kept the GT repo untouched as a backup and disabled pushing to it locally so the rewritten history can't be pushed there by accident.
 
 ## 2026-09-15 — Partner swap, part 1: my partner's change to my repo
-- **Access:** invited `jmbgat` as a collaborator with write access after moving the repo (section above). He accepted, and he
+- **Access:** invited my partner, Jad Mathew Bardawil (`jmbgat`), as a collaborator with write access after moving the repo (section above). He accepted, and he
   added me to his repo, `jmbgat/campusFinder`.
 - **His repo was empty:** when I accepted his invite and cloned it, Git warned *"You appear to have cloned an empty repository"*
   and `git ls-remote` showed no branches. His code was still only on his machine, so my change to his app waits until he pushes.
