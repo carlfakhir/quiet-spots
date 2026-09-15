@@ -1,7 +1,7 @@
 # Assignment 1 Submission — Quiet Spots
 
 > **Draft.** Sections marked ✏️ need your own words (why you chose this, what you learned, the partner story).
-> Sections marked 📱 need your phone. Everything else is filled in from the repo, journal, and screenshots.
+> Sections marked 📱 still need a capture from your phone. Everything else is filled in from the repo, journal, and screenshots.
 
 ## Name
 Carl Fakhir (GT username `cfakhir3`)
@@ -64,7 +64,12 @@ device sensors, and deploying a real backend? What did you know before, and what
 | ![](screenshots/08-stage4-map-and-alerts.png) | **Stage 4.** Campus map, alert settings, and a quiet-spot notification. |
 | ![](screenshots/09-spanish.png) | **Stage 5.** The app in Spanish. |
 | ![](screenshots/10-web-dashboard-live.png) | **Web dashboard** on the deployed API with usage stats. |
-| 📱 _Quiet Spots on iPhone measuring a real room_ | **Final app on the device**, ideally a short screen recording. |
+| ![](screenshots/11-device-spot-list.png) | **Quiet Spots on my iPhone.** Spot list loaded from the live API (production had no reports yet). |
+| ![](screenshots/12-device-spot-detail-weather.png) | **Spot page on the device** with live Open-Meteo weather (29 °C, clear) and the Measure button. |
+| ![](screenshots/13-device-sign-in-to-measure.png) | **Protected action.** Tapping Measure while signed out opens sign-in first, since posting requires an account. |
+| ![](screenshots/14-device-map.png) | **Campus map on the device** with a pin per study spot and the noise legend. |
+| ![](screenshots/15-device-account.png) | **Account tab** with sign in / create account. |
+| 📱 _Measuring a real room on the iPhone (+ posted report, quiet alert)_ | ✏️ _Still to capture: create an account on the phone, measure a spot, post, and ideally screen-record it._ |
 
 ## References (in the order I used them)
 

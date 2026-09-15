@@ -207,3 +207,7 @@ which a free Personal Team can't create. Local notifications were the realistic 
   added into a temporary worktree (`git worktree add --detach … 82533c5`), built it with my team passed on the command line,
   and installed it with `xcrun devicectl device install app`. ![landmarks](screenshots/02-landmarks-sample-on-iphone.png)
 - **Quiet Spots** built for the device (talks to the live API instead of localhost) and installed alongside it.
+- Screenshots taken on the phone of Quiet Spots running against the live API:
+  [spot list](screenshots/11-device-spot-list.png) · [spot page with weather](screenshots/12-device-spot-detail-weather.png) ·
+  [sign in to measure](screenshots/13-device-sign-in-to-measure.png) · [map](screenshots/14-device-map.png) · [account](screenshots/15-device-account.png).
+  Weather on the device matched the API (29 °C, clear), which confirms the phone build uses the deployed backend, not localhost.
