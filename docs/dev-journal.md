@@ -51,3 +51,35 @@ A running log of setup steps, problems hit, and how they were solved, for the wr
   and the device state changed from `connected (no DDI)` to `connected`.
 - Screenshot: [HelloDevice running on iPhone](screenshots/01-HelloDevice-on-iPhone.png), captured with `xcrun devicectl device capture screenshot`.
 - **Learned:** with a free Personal Team, signing works but each new developer must be trusted on the device and apps expire after 7 days.
+
+## 2026-09-14 (evening) — Pivot to Quiet Spots
+
+**Decision:** instead of a generic check-in app, build something original on top of a real sample:
+*Quiet Spots*, a crowdsourced map of how loud Georgia Tech study spots are, measured with the phone microphone.
+Starting point is Apple's SwiftUI **Landmarks** sample ("Handling User Input" chapter), because it already has
+a list of places, a detail page with a map, a favorite button, and a filter toggle.
+
+- Renamed the repo `checkin` → `quiet-spots` (`gh repo rename`); GitHub redirects the old URL.
+- Commits are attributed only to my GT account (`cfakhir3`), verified via the GitHub API.
+
+### Sample app committed unmodified
+- Downloaded `HandlingUserInput.zip` from the Apple tutorial page (found the link by opening the page with Playwright,
+  since the "Project files" button is rendered by JavaScript).
+- **Problem:** `git push` failed: *"RPC failed; HTTP 400 … the remote end hung up unexpectedly"* (≈5 MB of images).
+  **Fix:** `git config http.postBuffer 157286400`, then the push succeeded.
+- Built for iOS with my team passed on the command line (`DEVELOPMENT_TEAM=HW9CPN28W6`) so Apple's files stay untouched.
+  First attempt failed because the phone was locked/disconnected (`devicectl` showed `unavailable`), so built for
+  `generic/platform=iOS` instead.
+
+### Backend reshaped for spots + noise reports
+- Migration `0002_quiet_spots.sql` drops check-ins and adds `spots` (12 GT study spots, approximate coordinates)
+  and `reports` (dB level, quiet/ok/busy vote, note, distance from spot, weather at that time).
+- `GET /spots` computes each spot's average level over the last 2 hours → `quiet` (<45 dB), `moderate`, `loud` (>60 dB).
+- `GET /` serves a small **web dashboard**, a second client that reads the same API as the iPhone app.
+- **Bug in my own test script:** the "duplicate username returns 409" check passed while the API actually returned 400.
+  `bash -x` showed the JSON `{"username":…,"password":…}` inside `"$(…)"` was split by **bash brace expansion**
+  into two broken requests, and `expect 400 400 409` compared the wrong arguments. The API was fine; the test was lying.
+  **Fix:** build JSON in variables first, and make `expect()` fail if it doesn't get exactly 2 arguments.
+- **Dashboard bug** found by screenshotting with Playwright: text read "last measured never measured". Fixed the copy.
+- Local smoke test: all checks pass. ![dashboard](screenshots/03-web-dashboard-local.png)
+- **Blocked:** `wrangler login` timed out waiting for browser authorization. Deploy is waiting on that.

@@ -1,4 +1,4 @@
-name = "checkin-api"
+name = "quiet-spots-api"
 main = "src/index.ts"
 compatibility_date = "2026-09-01"
 
@@ -7,7 +7,7 @@ enabled = true
 
 [[d1_databases]]
 binding = "DB"
-database_name = "checkin-db"
-# Replace with the id printed by `npx wrangler d1 create checkin-db` before deploying.
+database_name = "quiet-spots-db"
+# Replace with the id printed by `npx wrangler d1 create quiet-spots-db` before deploying.
 database_id = "00000000-0000-0000-0000-000000000000"
 migrations_dir = "migrations"
