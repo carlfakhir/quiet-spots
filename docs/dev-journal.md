@@ -201,3 +201,9 @@ which a free Personal Team can't create. Local notifications were the realistic 
 - Plurals use SwiftUI automatic grammar agreement, which also works in Spanish (`^[%lld reporte](inflect: true)`).
 - Spot names and building names stay in English: they're proper names and come from the server.
 - Tested by launching the Simulator app with `-AppleLanguages "(es)"`. ![spanish](screenshots/09-spanish.png)
+
+## Running on the iPhone
+- **Landmarks sample, unmodified:** since the repo had already moved on, I checked out the exact commit where Apple's sample was
+  added into a temporary worktree (`git worktree add --detach … 82533c5`), built it with my team passed on the command line,
+  and installed it with `xcrun devicectl device install app`. ![landmarks](screenshots/02-landmarks-sample-on-iphone.png)
+- **Quiet Spots** built for the device (talks to the live API instead of localhost) and installed alongside it.
