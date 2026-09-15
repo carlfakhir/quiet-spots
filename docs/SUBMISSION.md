@@ -73,48 +73,47 @@ device sensors, and deploying a real backend? What did you know before, and what
 
 ## References (in the order I used them)
 
-### Setting up
-1. **Mac App Store: Xcode** — installed Xcode 27. Learned the command-line tools alone can't build apps, and that
+> Honest split: **"Used directly"** means the resource was actually opened, downloaded, or run.
+> **"Framework documentation"** lists the official docs for the APIs in the code. The code was written by Claude Code
+> from its own knowledge of these frameworks, not by reading these pages during the project.
+> ✏️ Add any tutorials or videos you watch or read yourself (item 1 asks for this).
+
+### Used directly
+1. **Mac App Store: Xcode 27**. Installed the IDE. Learned the command-line tools alone can't build apps, and that
    `xcode-select`, license acceptance, and `-runFirstLaunch` need admin rights.
-2. **Apple: [Running your app in Simulator or on a device](https://developer.apple.com/documentation/xcode/running-your-app-in-simulator-or-on-a-device)** —
-   Developer Mode, Personal Team signing, trusting the developer profile on the phone.
-3. **Course resource docs** ([Canvas references page](https://docs.google.com/document/d/1QMMM9BTS7GB3WujJDrXqdTqGYNvx3_rp1TzdKJ4vfM8/edit),
-   [second resource doc](https://docs.google.com/document/d/1ImiDiXD3tflsosJKj1U_nRopTYPDRFVImCj4UQjnKS0/edit)) — read to choose a platform.
-   The iOS Core Motion / sensors entry pointed me toward using a device sensor. The Kodeco "Your First iOS and SwiftUI App" link
-   turned out to be from 2019 (Xcode 11) with materials behind a sign-in, so I used Apple's current tutorial instead.
-4. **[GitHub CLI](https://cli.github.com/)** with GT Enterprise GitHub — creating the repo, labels, and issues from the terminal.
+2. **Course resource docs** ([resource doc 1](https://docs.google.com/document/d/1QMMM9BTS7GB3WujJDrXqdTqGYNvx3_rp1TzdKJ4vfM8/edit),
+   [resource doc 2](https://docs.google.com/document/d/1ImiDiXD3tflsosJKj1U_nRopTYPDRFVImCj4UQjnKS0/edit)). Read to choose a direction;
+   the "iOS Core Motion / sensors" entry pointed toward using a device sensor.
+3. **Kodeco, [Your First iOS and SwiftUI App](https://www.kodeco.com/4919757-your-first-ios-and-swiftui-app)** (from the course list).
+   Opened and **rejected**: it targets Xcode 11 / iOS 13 (2019) and the project materials need a sign-in.
+4. **Apple, [SwiftUI Tutorials: Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input)**.
+   Downloaded the completed project (`HandlingUserInput.zip`) and used it as the starting point: built it unmodified on my
+   iPhone, then modified it into Quiet Spots.
+5. **[GitHub CLI](https://cli.github.com/)** on GT Enterprise GitHub. Created the repo, labels, and issues from the terminal.
+6. **[XcodeGen](https://github.com/yonaskolb/XcodeGen)**. Installed with Homebrew; generates the Xcode project from `ios/project.yml`.
+7. **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)** (Cloudflare CLI). Local dev server, D1 database, migrations, secrets, deploy.
+   Its error messages guided the workers.dev subdomain fix.
+8. **[Cloudflare REST API](https://developers.cloudflare.com/api/)**. Registered the workers.dev subdomain when Wrangler's interactive prompt couldn't run.
+9. **[Open-Meteo API](https://open-meteo.com/)**. Called live by the backend for weather (no API key).
+10. **[Playwright](https://playwright.dev/)**. Opened pages that need JavaScript (found the sample's download link) and screenshotted the web dashboard to check its layout.
 
-### Building the app
-5. **Apple: [SwiftUI Tutorials — Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input)** —
-   the sample app I started from (list, detail with map, favorite button, filter toggle). ✏️ _Note which chapters you read._
-6. **[XcodeGen](https://github.com/yonaskolb/XcodeGen)** — generates the Xcode project from `ios/project.yml` so new files
-   don't require hand-editing `project.pbxproj`.
-7. **Apple: [AVAudioRecorder metering](https://developer.apple.com/documentation/avfaudio/avaudiorecorder)** — reading mic level
-   in dBFS; learned why a fixed offset is needed to approximate dB SPL and why decibels are averaged in the power domain.
-8. **Apple: [CoreLocation](https://developer.apple.com/documentation/corelocation)**, **[MapKit for SwiftUI](https://developer.apple.com/documentation/mapkit/mapkit-for-swiftui)** —
-   one-shot location, distance to spot, map annotations.
-9. **Apple: [UserNotifications](https://developer.apple.com/documentation/usernotifications)** and
-   **[BackgroundTasks / `backgroundTask(_:action:)`](https://developer.apple.com/documentation/swiftui/scene/backgroundtask(_:action:))** — local alerts and
-   background refresh; compared with **[APNs](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns)** and
-   **[Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/client)**.
-10. **Apple: [Localizing with String Catalogs](https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog)** — Spanish translation.
-11. **Apple: [XCTest UI testing](https://developer.apple.com/documentation/xctest/user-interface-tests)** — automated end-to-end tests and screenshot attachments.
-
-### Backend
-12. **[Cloudflare Workers](https://developers.cloudflare.com/workers/)**, **[D1](https://developers.cloudflare.com/d1/)**, and
-    **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)** — hosting, SQLite database, migrations, secrets, deploy.
-    Chosen because it's free without a credit card and doesn't sleep (Heroku is no longer free; Firebase server code needs a paid plan).
-13. **[Hono](https://hono.dev/)** — routing, CORS, JWT helpers for the API.
-14. **[Open-Meteo](https://open-meteo.com/en/docs)** — free weather API, no key; WMO weather codes.
-15. **[Playwright](https://playwright.dev/)** — opened resource pages that need JavaScript and screenshotted the web dashboard to check it.
+### Framework documentation (APIs used in the code)
+- Apple: [SwiftUI](https://developer.apple.com/documentation/swiftui), [AVAudioRecorder](https://developer.apple.com/documentation/avfaudio/avaudiorecorder) (microphone metering),
+  [CoreLocation](https://developer.apple.com/documentation/corelocation), [MapKit for SwiftUI](https://developer.apple.com/documentation/mapkit/mapkit-for-swiftui),
+  [UserNotifications](https://developer.apple.com/documentation/usernotifications), [BackgroundTasks](https://developer.apple.com/documentation/backgroundtasks),
+  [Keychain Services](https://developer.apple.com/documentation/security/keychain-services),
+  [String Catalogs](https://developer.apple.com/documentation/xcode/localizing-and-varying-text-with-a-string-catalog),
+  [XCTest UI testing](https://developer.apple.com/documentation/xctest/user-interface-tests)
+- Push comparison: [APNs](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns), [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/client)
+- Backend: [Cloudflare Workers](https://developers.cloudflare.com/workers/), [D1](https://developers.cloudflare.com/d1/), [Hono](https://hono.dev/)
 
 ### AI / virtual teammate
-16. **Claude Code (Anthropic), model Claude Opus 5** — used as a virtual teammate throughout. It substantively:
-    checked my environment and walked me through Xcode and device setup; proposed the architecture; wrote most of the
-    backend, the iOS code on top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy;
-    and debugged the problems listed below. Full, dated log of what I asked for, what it did, and what I checked:
-    [`docs/ai-log.md`](ai-log.md).
-    ✏️ _How you directed it, what you verified or changed yourself, and what you learned from working this way._
+- **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. It substantively:
+  checked my environment and walked me through Xcode and device setup; proposed the architecture; wrote the backend,
+  the iOS changes on top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy;
+  and debugged the problems listed below. Dated log of what I asked for, what it did, and what I checked:
+  [`docs/ai-log.md`](ai-log.md).
+  ✏️ _How you directed it, what you verified or changed yourself, and what you learned from working this way._
 
 ## Problems I had to debug
 Details and fixes for each are in the [dev journal](dev-journal.md).
