@@ -92,8 +92,7 @@ The same list, plus the framework documentation for the APIs the code uses, is o
 10. **[Playwright](https://playwright.dev/)**. Opened pages that need JavaScript (found the sample's download link) and screenshotted the web dashboard to check its layout.
 
 ### Coding assistance
-11. **Claude (Anthropic)** was used to assist with coding. A separate log of how I directed it, what it did, and what I
-    checked is submitted with this assignment.
+11. **Claude (Anthropic)** helped with coding.
 
 ### Screenshots of the app and backend
 
