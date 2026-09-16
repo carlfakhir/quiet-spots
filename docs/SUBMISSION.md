@@ -1,11 +1,16 @@
-# Assignment 1 Submission — Quiet Spots
+# Quiet Spots — CS 4261 / 8803 MAS, Assignment 1
 
-> **Draft.** Remaining: ✏️ my partner merges my pull request and runs it on his phone.
+**At a glance**
 
-## Name
-Carl Fakhir (GT username `cfakhir3`)
+- **Repo:** https://github.com/carlfakhir/quiet-spots
+- **Live API:** https://quiet-spots-api.cfakhir3.workers.dev ([`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api) · [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats)) · [web dashboard](https://quiet-spots-api.cfakhir3.workers.dev/)
+- **Partner:** Jad Mathew Bardawil ([`jmbgat`](https://github.com/jmbgat)) — [his pull request to my repo](https://github.com/carlfakhir/quiet-spots/pull/11) · [my pull request to his](https://github.com/jmbgat/campusFinder/pull/1)
+- **Virtual teammate log:** [`docs/ai-log.md`](ai-log.md) — required disclosure, submitted as a companion document
 
-## What I built
+## 1. Name
+Carl Fakhir (GT username `cfakhir3`) · GitHub [`carlfakhir`](https://github.com/carlfakhir)
+
+## 2. What I built
 **Quiet Spots** is an iPhone app for finding a quiet place to study at Georgia Tech.
 
 - Browse 12 campus study spots, sorted quietest first, with a favorites filter
@@ -60,7 +65,40 @@ Git skills I already had.
 | Activity data collection | `POST /events` from the app, summarized at `/stats` and on the dashboard |
 | Testing | API smoke test script; XCUITest suite (sign up → measure → post; map → alerts) |
 
-## Screenshots
+## 3. References
+Listed in the order I used them, with what I used each one for and what I learned. Screenshots of the app and backend are in
+the next section, and the problems I had to debug follow them.
+
+The same list, plus the framework documentation for the APIs the code uses, is on its own page:
+[`docs/REFERENCES.md`](REFERENCES.md).
+
+### Resources and tools I used directly
+1. **Mac App Store: Xcode 27**. Installed the IDE. Learned the command-line tools alone can't build apps, and that
+   `xcode-select`, license acceptance, and `-runFirstLaunch` need admin rights.
+2. **Course resource docs** ([resource doc 1](https://docs.google.com/document/d/1QMMM9BTS7GB3WujJDrXqdTqGYNvx3_rp1TzdKJ4vfM8/edit),
+   [resource doc 2](https://docs.google.com/document/d/1ImiDiXD3tflsosJKj1U_nRopTYPDRFVImCj4UQjnKS0/edit)). I downloaded and read both to choose a direction;
+   the "iOS Core Motion / sensors" entry pointed toward using a device sensor.
+3. **Kodeco, [Your First iOS and SwiftUI App](https://www.kodeco.com/4919757-your-first-ios-and-swiftui-app)** (from the course list).
+   Used as a beginner reference for SwiftUI app structure. I didn't build its project: it targets Xcode 11 / iOS 13 (2019)
+   and the materials need a sign-in, so Apple's current sample became the starting point instead.
+4. **Apple, [SwiftUI Tutorials: Handling User Input](https://developer.apple.com/tutorials/swiftui/handling-user-input)**.
+   Downloaded the completed project (`HandlingUserInput.zip`) and used it as the starting point: built it unmodified on my
+   iPhone, then modified it into Quiet Spots.
+5. **[GitHub CLI](https://cli.github.com/)**. Created the repo, labels, and issues from the terminal (first on GT GitHub, then on my personal GitHub).
+6. **[XcodeGen](https://github.com/yonaskolb/XcodeGen)**. Installed with Homebrew; generates the Xcode project from `ios/project.yml`.
+7. **[Wrangler](https://developers.cloudflare.com/workers/wrangler/)** (Cloudflare CLI). Local dev server, D1 database, migrations, secrets, deploy.
+   Its error messages guided the workers.dev subdomain fix.
+8. **[Cloudflare REST API](https://developers.cloudflare.com/api/)**. Registered the workers.dev subdomain when Wrangler's interactive prompt couldn't run.
+9. **[Open-Meteo API](https://open-meteo.com/)**. Called live by the backend for weather (no API key).
+10. **[Playwright](https://playwright.dev/)**. Opened pages that need JavaScript (found the sample's download link) and screenshotted the web dashboard to check its layout.
+
+### Virtual teammate
+11. **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. Required disclosure, with a dated
+    log of what I asked for, what it did, and what I checked: submitted as the companion document
+    **"Quiet Spots — Virtual Teammate (AI) Log"**, also in the repo at
+    [`docs/ai-log.md`](ai-log.md).
+
+### Screenshots of the app and backend
 
 | | |
 |---|---|
@@ -90,10 +128,7 @@ Git skills I already had.
 | ![](screenshots/26-my-branch-commit-pr.png) | **My branch, commit, and PR from the terminal:** `git branch -vv`, the commit with its message, `gh pr view`, and the graph showing my commit on top of his `main`. |
 | ![](screenshots/27-partner-repo-branches.png) | **Branches on his repo:** my `feature/show-start-time-for-upcoming-events` branch linked to PR #1. |
 
-## References
-The annotated reference list is on its own page: [`docs/REFERENCES.md`](REFERENCES.md).
-
-## Problems I had to debug
+### Problems I had to debug
 Details and fixes for each are in the [dev journal](dev-journal.md).
 
 | Problem | What was going on | Fix |
@@ -112,7 +147,7 @@ Details and fixes for each are in the [dev journal](dev-journal.md).
 | UI test couldn't find banner that was visible | Wrong element type in the query; found by watching the test's screen recording | Query any element type |
 | Mixed-up commit | `git add -A` swept in unfinished files | Split with `git reset --soft`, force-push before anyone cloned |
 
-## Repository and API
+## 4. Repository, API, and how to run it
 - **Repo:** https://github.com/carlfakhir/quiet-spots (public, so anyone in the class can access it).
   Started on GT GitHub (github.gatech.edu/cfakhir3/quiet-spots) and moved on Sept 15 so my partner could be added; see the [dev journal](dev-journal.md#moving-the-repo-to-my-personal-github).
 - **API:** https://quiet-spots-api.cfakhir3.workers.dev (endpoints: [`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api), stats: [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats))
@@ -120,7 +155,7 @@ Details and fixes for each are in the [dev journal](dev-journal.md).
 - **Download and run:** see the [README](../README.md#run-the-ios-app): clone, open `ios/QuietSpots.xcodeproj`, pick your team and iPhone, ⌘R.
   Backend: `cd backend && npm install && npm run db:migrate:local && npm run dev`.
 
-## Git history
+## 5. Revision control (Git) history and working with my partner
 
 ```
 5b1df7f  Sep 14 18:21  Carl Fakhir   Add CheckIn backend API (Workers + Hono + D1) and project docs
@@ -148,6 +183,10 @@ ba7bd42  Sep 15 17:12  Carl Fakhir   Move repo to personal GitHub and update lin
 bedd2e3  Sep 15 17:18  Carl Fakhir   Give references their own page and keep virtual teammate notes in one log
 c4e8abd  Sep 15 17:51  jmb245        Add last updated timestamp to spot list
 1293c8a  Sep 15 17:55  carlfakhir    Merge pull request #11 from carlfakhir/feature/add-last-updated-timestamp
+01d5a6a  Sep 15 18:00  Carl Fakhir   Document partner's pull request #11 with screenshots and git graph
+9f0c057  Sep 15 18:03  Carl Fakhir   Fill in partner name, communication, and takeaways
+6f92c9b  Sep 15 18:18  Carl Fakhir   Document my pull request to partner's repo with before/after and PR screenshots
+21c82d9  Sep 15 20:03  Carl Fakhir   Tidy the summary bullets in the virtual teammate log
 ```
 Branch and merge view: [git graph](screenshots/22-git-graph-partner-merge.png) · [PR #11](https://github.com/carlfakhir/quiet-spots/pull/11). My change to his repo: [PR #1](https://github.com/jmbgat/campusFinder/pull/1) · [branch, commit, and PR](screenshots/26-my-branch-commit-pr.png).
 
@@ -176,10 +215,12 @@ on a feature branch through a reviewed pull request.
   ([PR #1](https://github.com/jmbgat/campusFinder/pull/1), [before/after](screenshots/23-my-change-before-after.png)).
   To test it I ran his FastAPI backend locally with its seeded demo events, built the app for the Simulator with the location
   set to campus, and also built and installed it on my iPhone with my own team and bundle ID passed on the command line, so
-  his Xcode project file didn't change. ✏️ _He merges it and runs it on his phone._
+  his Xcode project file didn't change. As of this submission the pull request is open and waiting for him to merge it
+  and run it on his phone.
 - **Problems when running his app:** my iPhone had hit the free Apple account's limit of 3 sideloaded apps, so I removed my
   earlier HelloDevice test app to install his. His backend only runs on his Mac so far (`127.0.0.1`), so on a real phone the
   feed can't load until it's hosted or pointed at the Mac's Wi-Fi IP. That's why the screenshots are from the Simulator.
 - **What I learned about working with others:** how important communication and code organization are.
 - **What I'd do differently next time:** set up my repos so they're friendlier for others to work in, with a clearer layout of
   how things are organized.
+
