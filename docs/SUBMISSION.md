@@ -150,8 +150,39 @@ Details and fixes for each are in the [dev journal](dev-journal.md).
   Started on GT GitHub (github.gatech.edu/cfakhir3/quiet-spots) and moved on Sept 15 so my partner could be added; see the [dev journal](dev-journal.md#moving-the-repo-to-my-personal-github).
 - **API:** https://quiet-spots-api.cfakhir3.workers.dev (endpoints: [`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api), stats: [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats))
 - **Dashboard:** https://quiet-spots-api.cfakhir3.workers.dev/
-- **Download and run:** see the [README](../README.md#run-the-ios-app): clone, open `ios/QuietSpots.xcodeproj`, pick your team and iPhone, ⌘R.
-  Backend: `cd backend && npm install && npm run db:migrate:local && npm run dev`.
+### How to download and run it
+No account or API key is needed to browse spots; posting a report needs a free in-app account.
+
+**The iPhone app** (needs a Mac with Xcode 16+ and an iPhone on iOS 18+, or the Simulator):
+```bash
+git clone https://github.com/carlfakhir/quiet-spots.git
+open quiet-spots/ios/QuietSpots.xcodeproj
+```
+1. Select the **QuietSpots** target → **Signing & Capabilities** → pick your own Team, and change the bundle identifier if
+   Xcode says it's taken (for example `edu.gatech.<your-username>.QuietSpots`).
+2. Choose your iPhone as the run destination and press **⌘R**. On a new device, trust the developer profile on the phone:
+   Settings → General → VPN & Device Management.
+3. A build on a real iPhone talks to the deployed API, so nothing needs to be running on your Mac. A build on the
+   **Simulator** talks to `http://localhost:8787`, so start the backend below first.
+4. Automated tests: **⌘U** in Xcode (the UI test creates an account, measures, and posts a report), with the local backend running.
+
+**The backend** (needs Node 20+):
+```bash
+cd quiet-spots/backend
+npm install
+cp .dev.vars.example .dev.vars      # set JWT_SECRET
+npm run db:migrate:local
+npm run dev                         # http://localhost:8787
+npm run smoke                       # end-to-end API test, in another terminal
+```
+To deploy your own copy: `npx wrangler login`, `npx wrangler d1 create quiet-spots-db` (paste the id into `wrangler.toml`),
+`npm run db:migrate:remote`, `npx wrangler secret put JWT_SECRET`, `npm run deploy`.
+
+**Or just open the API and dashboard in a browser** — no install needed:
+[dashboard](https://quiet-spots-api.cfakhir3.workers.dev/) · [`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api) ·
+[`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats)
+
+The same instructions, kept up to date, are in the repo's [README](https://github.com/carlfakhir/quiet-spots#readme).
 
 ## 5. Revision control (Git) history and working with my partner
 

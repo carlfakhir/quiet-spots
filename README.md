@@ -17,6 +17,17 @@ parks became study spots, the bundled JSON became a REST API, and the favorite b
 | Web dashboard | Plain HTML/JS served by the API | [`backend/src/dashboard.ts`](backend/src/dashboard.ts) |
 | Third-party data | [Open-Meteo](https://open-meteo.com/) weather | called by the API |
 
+## Download and run it
+Quickest look, no install: open the [web dashboard](https://quiet-spots-api.cfakhir3.workers.dev/), which reads the same live API as the app.
+
+To run the iPhone app you need a Mac with Xcode 16+ and an iPhone on iOS 18+ (or the Simulator):
+```bash
+git clone https://github.com/carlfakhir/quiet-spots.git
+open quiet-spots/ios/QuietSpots.xcodeproj
+```
+Then pick your own signing Team and press ⌘R — full steps in [Run the iOS app](#run-the-ios-app) below, and the backend in
+[Run the backend locally](#run-the-backend-locally). Browsing spots needs no account; posting a report needs a free in-app account.
+
 ## What it does
 - **Browse spots**: 12 campus study spots, sorted quietest first, with a favorites filter (from the original sample).
 - **Measure noise**: 5-second microphone reading converted to approximate dB, plus an optional quiet/okay/busy vote and note.
