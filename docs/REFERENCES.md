@@ -41,4 +41,5 @@ Listed in the order I used them, with what I used each one for and what I learne
 - Backend: [Cloudflare Workers](https://developers.cloudflare.com/workers/), [D1](https://developers.cloudflare.com/d1/), [Hono](https://hono.dev/)
 
 ### Virtual teammate
-11. Required disclosure for work done with tool assistance: see the companion document *"Quiet Spots — Virtual Teammate (AI) Log"*, submitted with this assignment.
+11. Required disclosure for work done with tool assistance: **Claude Code (Anthropic), model Claude Opus 5**, used as a
+    virtual teammate throughout. The dated log is the appendix of [`docs/SUBMISSION.md`](SUBMISSION.md).
