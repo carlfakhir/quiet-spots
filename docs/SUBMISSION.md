@@ -5,7 +5,6 @@
 - **Repo:** https://github.com/carlfakhir/quiet-spots
 - **Live API:** https://quiet-spots-api.cfakhir3.workers.dev ([`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api) · [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats)) · [web dashboard](https://quiet-spots-api.cfakhir3.workers.dev/)
 - **Partner:** Jad Mathew Bardawil ([`jmbgat`](https://github.com/jmbgat)) — [his pull request to my repo](https://github.com/carlfakhir/quiet-spots/pull/11) · [my pull request to his](https://github.com/jmbgat/campusFinder/pull/1)
-- **Companion document:** *Quiet Spots — Virtual Teammate (AI) Log* — required disclosure, submitted with this assignment
 
 ## 1. Name
 Carl Fakhir (GT username `cfakhir3`) · GitHub [`carlfakhir`](https://github.com/carlfakhir)
