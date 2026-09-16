@@ -3,21 +3,19 @@
 The assignment allows virtual teammates if their use is documented. This file records how I used
 **Claude Code** (Anthropic's CLI coding agent, model Claude Opus 5) and what I learned.
 
-## Summary (moved here from the submission and references)
-- **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. It substantively:
-  checked my environment and walked me through Xcode and device setup; proposed the architecture; wrote the backend,
-  the iOS changes on top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy;
-  and debugged the problems listed in the submission. Dated log of what I asked for, what it did, and what I checked is below.
-
-  **How I used it:** I chose the app idea, directed the features and design choices (for example: build on a real sample so
-  the modification is visible, make it original, keep commits under my account), personally tested the app on my iPhone,
-  and gave feedback. Claude provided substantial coding assistance; I guided what we were building and checked how it worked.
-  **What I learned:** AI can move quickly, but it needs clear direction and hands-on testing, and I'd review each change as
-  it's introduced next time.
+## Summary
+- **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. It substantively: checked my
+  environment and walked me through Xcode and device setup; proposed the architecture; wrote the backend, the iOS changes on
+  top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy; and debugged the problems
+  listed in the submission. The dated log below says what I asked for, what it did, and what I checked.
+- **How I used it:** I chose the app idea, directed the features and design choices (for example: build on a real sample so the
+  modification is visible, make it original, keep commits under my account), personally tested the app on my iPhone, and gave
+  feedback. Claude provided substantial coding assistance; I guided what we were building and checked how it worked.
 - **Where the idea came from:** Quiet Spots came out of brainstorming app ideas with Claude; I chose it from that list.
-- **References note:** the "Framework documentation" in [REFERENCES.md](REFERENCES.md) lists the official docs for the APIs in the
-  code. The code was written by Claude Code from its own knowledge of these frameworks, not by reading those pages during the project.
-- **Takeaway:** using AI for coding still requires clear direction and hands-on testing. Next time I would spend more time
+- **References note:** the "Framework documentation" in [REFERENCES.md](REFERENCES.md) lists the official docs for the APIs in
+  the code. The code was written by Claude Code from its own knowledge of these frameworks, not by reading those pages during
+  the project.
+- **What I learned:** AI can move quickly, but it needs clear direction and hands-on testing. Next time I would spend more time
   understanding each change as it is introduced instead of reviewing larger batches afterward.
 
 ## Dated log
