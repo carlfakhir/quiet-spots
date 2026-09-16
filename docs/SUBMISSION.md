@@ -5,7 +5,7 @@
 - **Repo:** https://github.com/carlfakhir/quiet-spots
 - **Live API:** https://quiet-spots-api.cfakhir3.workers.dev ([`/api`](https://quiet-spots-api.cfakhir3.workers.dev/api) · [`/stats`](https://quiet-spots-api.cfakhir3.workers.dev/stats)) · [web dashboard](https://quiet-spots-api.cfakhir3.workers.dev/)
 - **Partner:** Jad Mathew Bardawil ([`jmbgat`](https://github.com/jmbgat)) — [his pull request to my repo](https://github.com/carlfakhir/quiet-spots/pull/11) · [my pull request to his](https://github.com/jmbgat/campusFinder/pull/1)
-- **Virtual teammate log:** [`docs/ai-log.md`](ai-log.md) — required disclosure, submitted as a companion document
+- **Companion document:** *Quiet Spots — Virtual Teammate (AI) Log* — required disclosure, submitted with this assignment
 
 ## 1. Name
 Carl Fakhir (GT username `cfakhir3`) · GitHub [`carlfakhir`](https://github.com/carlfakhir)
@@ -95,8 +95,7 @@ The same list, plus the framework documentation for the APIs the code uses, is o
 ### Virtual teammate
 11. **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. Required disclosure, with a dated
     log of what I asked for, what it did, and what I checked: submitted as the companion document
-    **"Quiet Spots — Virtual Teammate (AI) Log"**, also in the repo at
-    [`docs/ai-log.md`](ai-log.md).
+    **"Quiet Spots — Virtual Teammate (AI) Log"**.
 
 ### Screenshots of the app and backend
 

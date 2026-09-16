@@ -87,7 +87,6 @@ Send auth as `Authorization: Bearer <token>`.
 ## Project docs
 - [`docs/dev-journal.md`](docs/dev-journal.md) — step-by-step log with problems hit and how they were solved
 - [`docs/REFERENCES.md`](docs/REFERENCES.md) — annotated references
-- [`docs/ai-log.md`](docs/ai-log.md) — virtual teammate log (linked from the references)
 - [`docs/screenshots/`](docs/screenshots/) — screenshots referenced in the journal
 - Tasks and bugs: this repo's **Issues**
 
