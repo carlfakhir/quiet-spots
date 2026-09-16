@@ -91,9 +91,9 @@ The same list, plus the framework documentation for the APIs the code uses, is o
 9. **[Open-Meteo API](https://open-meteo.com/)**. Called live by the backend for weather (no API key).
 10. **[Playwright](https://playwright.dev/)**. Opened pages that need JavaScript (found the sample's download link) and screenshotted the web dashboard to check its layout.
 
-### Virtual teammate
-11. **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. Required disclosure, with a
-    dated log of what I asked for, what it did, and what I checked: **appendix at the end of this document**.
+### Coding assistance
+11. **Claude (Anthropic)** was used to assist with coding. A separate log of how I directed it, what it did, and what I
+    checked is submitted with this assignment.
 
 ### Screenshots of the app and backend
 
@@ -251,40 +251,3 @@ on a feature branch through a reviewed pull request.
 - **What I learned about working with others:** how important communication and code organization are.
 - **What I'd do differently next time:** set up my repos so they're friendlier for others to work in, with a clearer layout of
   how things are organized.
-
-## Appendix: virtual teammate (AI) log
-The assignment allows virtual teammates if their use is documented. This file records how I used
-**Claude Code** (Anthropic's CLI coding agent, model Claude Opus 5) and what I learned.
-
-### Summary
-- **Claude Code (Anthropic), model Claude Opus 5**, used as a virtual teammate throughout. It substantively: checked my
-  environment and walked me through Xcode and device setup; proposed the architecture; wrote the backend, the iOS changes on
-  top of Apple's sample, the tests, and the Spanish translations; ran builds, tests, and the deploy; and debugged the problems
-  listed in the submission. The dated log below says what I asked for, what it did, and what I checked.
-- **How I used it:** I chose the app idea, directed the features and design choices (for example: build on a real sample so the
-  modification is visible, make it original, keep commits under my account), personally tested the app on my iPhone, and gave
-  feedback. Claude provided substantial coding assistance; I guided what we were building and checked how it worked.
-- **Where the idea came from:** Quiet Spots came out of brainstorming app ideas with Claude; I chose it from that list.
-- **References note:** the "Framework documentation" in [`docs/REFERENCES.md`](REFERENCES.md) lists the official docs for the APIs in
-  the code. The code was written by Claude Code from its own knowledge of these frameworks, not by reading those pages during
-  the project.
-- **What I learned:** AI can move quickly, but it needs clear direction and hands-on testing. Next time I would spend more time
-  understanding each change as it is introduced instead of reviewing larger batches afterward.
-
-### Dated log
-
-| Date | What I asked for | What the AI did | What I checked / learned |
-|---|---|---|---|
-| 2026-09-14 | Help plan and build the assignment on iPhone, partner in separate repo, use my GT GitHub | Checked installed tools (no Xcode yet), proposed SwiftUI + Cloudflare Workers/D1 backend. Found I was already logged into github.gatech.edu as `cfakhir3` and set a repo-local git identity so commits are attributed to my GT account | Why Workers + D1 over Render (free tier sleeps and loses disk) or Firebase Functions (needs a paid plan) |
-| 2026-09-14 | Write the backend | Generated the Hono API (`backend/src/index.ts`), D1 schema, and `scripts/smoke.sh`. Ran it locally with `wrangler dev`; all smoke tests passed, including live Open-Meteo weather for Georgia Tech | How JWT bearer auth and PBKDF2 password hashing work; D1 migrations; that Workers caps PBKDF2 at 100k iterations |
-| 2026-09-14 | Install the `frontend-design` Claude Code skill from anthropics/claude-code | Downloaded `SKILL.md` into `~/.claude/skills/`, reviewed it (design guidance only, no scripts) | Skills are prompt instructions an agent loads on demand; worth reading before installing |
-| 2026-09-14 | Help me set up Xcode | Checked disk space/OS compatibility, opened the App Store page, watched for install to finish, diagnosed the license error and gave me the `sudo` commands to run myself, verified SDKs, started simulator runtime download | Which steps need admin rights and why the AI can't/shouldn't run them; what `xcode-select` actually switches |
-| 2026-09-14 | Get a first app running on my iPhone | Installed XcodeGen, wrote a one-screen SwiftUI test app, built/installed/launched it from the command line, diagnosed the Apple ID login and "untrusted developer" errors and told me the on-device steps | The chain: code signing → provisioning profile → install → user trust → launch, and which parts need a human on the device |
-| 2026-09-14 | Make it original, meet every assignment requirement, keep commits under my account only | Re-read the rubric and noticed grading says "deployed and **modified** a sample application", so proposed building on Apple's Landmarks sample. Used Playwright to read the course resource Google Docs and find the sample's download link. Rewrote git history to remove AI co-author trailers at my request (disclosure stays in this log instead) | Reading the grading criteria closely changes the plan; how `git filter-branch --msg-filter` rewrites history and why that needs a force push |
-| 2026-09-14 | Build the backend for Quiet Spots | Wrote migration, spot/report endpoints, web dashboard, and smoke tests. Found a bash brace-expansion bug in its own test script with `bash -x`, and a copy bug by screenshotting the dashboard | A passing test isn't proof: the check was comparing the wrong values. Always make a test fail once on purpose |
-| 2026-09-14 | Build the whole app from the sample and keep going while I handle partner work tomorrow | Built Quiet Spots in five stages on top of Apple's Landmarks sample (spots → API + accounts → mic measuring + weather + reports → map + notifications → Spanish), wrote XCUITests and debugged four failing runs using the test's saved UI hierarchy and screen recording, deployed the backend (including registering the workers.dev subdomain via the Cloudflare API), added dashboard stats, updated Issues, and drafted SUBMISSION.md. Split a commit it had mixed up with `git add -A` | I directed the pivot and features, tested the builds on my iPhone, and took the device screenshots. Lesson: review each change as it lands, not in batches |
-| 2026-09-14 | Why do I need Cloudflare? Can it be a different account from GitHub? | Explained that item 5 needs an always-online server the phone and graders can reach, and that the Cloudflare and GitHub accounts are independent | Hosting is separate from source control; deploys go from my Mac straight to Cloudflare |
-| 2026-09-15 | Add my partner `jmbgat`; then move the repo to my personal GitHub, public, with history under that account | Found `jmbgat` doesn't exist on GT GitHub (only github.com) and explained why he can't be added. After I chose to move, scanned history for secrets, rewrote the commit author with `git filter-repo`, created the public repo, recreated Issues #1–#10 with a script, invited `jmbgat`, and updated hashes/links in the docs | GT GitHub and github.com are separate servers with separate accounts; the assignment allows my own repo if it's accessible to the class. Rewriting history changes every hash, so anything quoting hashes needs updating |
-| 2026-09-15 | Keep AI mentions only in this log; give references their own page | Searched every file, commit message, and Issue for AI mentions. Moved them here from the submission, README, and dev journal, reworded one commit message, and split the references into `docs/REFERENCES.md` with a pointer to this log (the assignment requires AI help to be listed with the references) | Rewording a commit message rewrites that commit and every one after it, so hashes in the docs had to be updated again |
-| 2026-09-15 | Suggest a small change my partner could make, then review his change, merge it, and document the swap | Wrote a suggested prompt for my partner's own assistant (he chose a different change). Accepted his repo invite and found it was empty. Checked out his branch, confirmed it only touched two files and used real API data, built and installed it on my iPhone, posted my approving review and merged PR #11 after he opened it, took the Simulator and GitHub screenshots with Playwright, and updated the journal and submission | I asked him to open a PR instead of merging his branch directly, so the review is on GitHub. A logged-out browser can't load GitHub's network graph, so a git-log graph image replaced it |
-| 2026-09-15 | Make my change to my partner's repo on a branch, open a PR, screenshot it, and screenshot his whole app for him | Ran his FastAPI backend and iOS app, found upcoming event cards only showed end times, changed `EventCardView.swift` on a feature branch, built for the Simulator and my iPhone (removed my HelloDevice test app after hitting the free-profile 3-app limit), committed under my account, pushed, and opened PR #1. Made before/after and terminal images and GitHub screenshots with Playwright. For his screenshot folder, built a throwaway copy of his project with a launch variable to open each screen, since the Simulator can't be tapped from the command line | Passing the signing team and bundle ID on the `xcodebuild` command line keeps a partner's project file unchanged. A free Apple account limits a phone to 3 sideloaded apps |

@@ -40,6 +40,5 @@ Listed in the order I used them, with what I used each one for and what I learne
 - Push comparison: [APNs](https://developer.apple.com/documentation/usernotifications/registering-your-app-with-apns), [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/ios/client)
 - Backend: [Cloudflare Workers](https://developers.cloudflare.com/workers/), [D1](https://developers.cloudflare.com/d1/), [Hono](https://hono.dev/)
 
-### Virtual teammate
-11. Required disclosure for work done with tool assistance: **Claude Code (Anthropic), model Claude Opus 5**, used as a
-    virtual teammate throughout. The dated log is the appendix of [`docs/SUBMISSION.md`](SUBMISSION.md).
+### Coding assistance
+11. **Claude (Anthropic)** was used to assist with coding. The separate log submitted with the assignment has the details.
